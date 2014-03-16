@@ -64,8 +64,7 @@ a:visited
 	position:fixed;
 	top:0px;
 	width:100%; 
-	height:auto; 
-	/** background-color:#ffffff; */
+	height:auto;
 	background: rgb(0,0,0); /* Fall-back for browsers that don't
                                     support rgba */
     background: rgba(0, 0, 0, .7);
@@ -77,6 +76,7 @@ a:visited
 {
 	text-align: center;
 	margin: 10px 0;
+	margin-left:0;
 }
 
 #nav
