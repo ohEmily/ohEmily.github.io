@@ -1,123 +1,138 @@
 /* Global */
 
-body {
-	font-family: 'Open Sans', sans-serif;
+body 
+{
+	font-family: "Roboto", 'Open Sans', sans-serif;
 	font-weight: 400;
 	font-size: 1em;
-	color: #8a8683;
+	color: #eeeeee;
 	background-color:#ffffff;
 }
-img {
+
+@font-face 
+{
+  font-family: "Roboto";
+  /** src: url(http://www.princexml.com/fonts/larabie/kimberle.ttf) format("truetype"); */
+  src: url('../fonts/roboto-regular-webfont.ttf') format("truetype");
+}
+
+img 
+{
 	max-width: 100%;
 }
-a:link {
+a:link 
+{
 	color: #f68f67;
 	text-decoration: none;
 }
-a:hover {
+a:hover 
+{
 	color: #bde2df;
 	text-decoration: none;
 }
-a:visited {
+a:visited 
+{
 	color: #f68f67;
 	text-decoration: none;
 }
 
+#me
+{
+	width: 300px;
+	height: 300px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	overflow:hidden;
+	background: url('../images/me.jpg') no-repeat;
+}
 
-
-
+#decorative 
+{
+	display:none;
+}
 
 /* Navigation */
 
-.menu {
+.menu 
+{
 	position:fixed;
 	top:0px;
 	width:100%; 
 	height:auto; 
-	background-color:#ffffff;
+	/** background-color:#ffffff; */
+	background: rgb(0,0,0); /* Fall-back for browsers that don't
+                                    support rgba */
+    background: rgba(0, 0, 0, .7);
 	z-index:100;
+	color:#8a8683;
 }
-#logo {
+
+#logo
+{
 	text-align: center;
 	margin: 10px 0;
 }
-#nav {
+
+#nav
+{
 	text-align: right;
-	margin: 30px 0 0 0;
+	margin: 10px 0 0 0;
 }
-.navigation{
+
+.navigation
+{
 	float: right;
 	list-style: none;
 	margin: 0;
 }
-.navigation li{
+.navigation li
+{
 	float: left;
 	padding:0 0 0 50px;
 }
-.navigation li:hover{
+.navigation li:hover
+{
 	cursor:pointer;
 	color: #a9d3d0;
 }
 
-.navigation .active{
+.navigation .active
+{
 	cursor:pointer;
 	color: #f68f67;
 	font-weight:bold;
 }
 
 
-
-
 /* General Slides */ 
 
-.slide{
+.slide
+{
 	background-attachment: fixed;
 	width:100%;
 	height:auto;
 	position: relative;
-	padding:140px 0;
+	padding:60px 0;
 }
-
-
 
 /* Slide 1 */ 
 
-#slide1{
-	background-color:#ffffff;
+#slide1
+{
+	background-color:#ee475b;
+	text-align:center;
 }
-#slide1 h1 {
-	font-size: 3.8em;
-	letter-spacing: -3px;
-	line-height: 0px;
-	color:#8a8683;
-	font-weight: 700;
-}
-#slide1 h2 {
-	font-size: 2em;
-	color: #8a8683;
-	line-height: 0px;
-	padding-bottom:20px;
-	font-weight: 400;
-}
-
-
-
-
-/* Slide 2 */ 
-
-#slide2{
-	background-image:url('../images/footprints.png');
-	background-color:#f68f67;
-	color:#ffffff;
-}
-#slide2 h1 {
+#slide1 h1 
+{
 	font-size: 3.8em;
 	letter-spacing: -3px;
 	line-height: 0px;
 	color:#ffffff;
 	font-weight: 700;
 }
-#slide2 h2 {
+#slide1 h2 
+{
 	font-size: 2em;
 	color: #ffffff;
 	line-height: 0px;
@@ -125,29 +140,100 @@ a:visited {
 	font-weight: 400;
 }
 
-
-
-
-/* Slide 3 */ 
-
-#slide3{
-	background-color:#ffffff;
+.sites_navigation
+{
+	float:center;
+	font-size:2em;
+	list-style: none;
+	margin: 0;
 }
-#slide3 h1 {
+.sites_navigation li
+{
+	float: left;
+	padding-right:50px;
+}
+
+.sites_navigation a:link,
+.sites_navigation a:visited
+{
+	color: #aaaaaa;
+	/* text-decoration:underline; */
+}
+
+.sites_navigation a:hover
+{
+	cursor:pointer;
+	color: #999999;
+}
+
+
+/* Slide 2 */ 
+
+#slide2{
+	/** background-image:url('../images/footprints.png'); */
+	background-color:#dedede;
+	color:#ffffff;
+	text-align:center;
+}
+#slide2 h1 {
 	font-size: 3.8em;
 	letter-spacing: -3px;
 	line-height: 0px;
 	color:#8a8683;
 	font-weight: 700;
 }
-#slide3 h2 {
+#slide2 h2 
+{
 	font-size: 2em;
 	color: #8a8683;
 	line-height: 0px;
 	padding-bottom:20px;
 	font-weight: 400;
 }
-#test{
+
+#desk_setup
+{
+	margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* CampusTaxiShare */ 
+
+#slide3
+{
+	background: url('../images/bg_ny.jpg') no-repeat center center fixed; 
+	background-size:cover;
+	background-position:left center;
+	background-color:#ffffff;
+	color:#ffffff;
+}
+#slide3 h1 
+{
+	font-size: 3.8em;
+	letter-spacing: -3px;
+	line-height: 0px;
+	font-weight: 700;
+}
+#slide3 h2 
+{
+	font-size: 2em;
+	line-height: 0px;
+	padding-bottom:20px;
+	font-weight: 400;
+}
+
+#slide3 h3
+{
+	font-size: 1.4em;
+	color: #ffffff;
+	line-height: 1.25em;
+	padding-bottom:20px;
+	font-weight: 200;
+}
+
+#test
+{
 	background-color:#bde2df;
 	color:#ffffff;
 	text-align:center;
@@ -156,23 +242,61 @@ a:visited {
 }
 
 
-
-
 /* Slide 4 */
 
-#slide4{
-	background-image:url('../images/sunglasses.png');
-	background-color:#8a8683;
+#slide4
+{
+	background-color:#2c2c2c;
 	color:#ffffff;
 }
-#slide4 h1 {
+
+#slide4 h1 
+{
+	font-size: 3.8em;
+	letter-spacing: -3px;
+	line-height: 0px;
+	color:#bebdbd;
+	font-weight: 700;
+}
+
+#slide4 h2 
+{
+	font-size: 2em;
+	color: #bebdbd;
+	line-height: 0px;
+	padding-bottom:20px;
+	font-weight: 400;
+}
+
+#slide4 h3
+{
+	font-size: 1.4em;
+	color: #9fe1de;
+	line-height: 1.25em;
+	padding-bottom:20px;	
+	font-weight: 200;
+}
+
+/* Slide 5 */
+
+#slide5
+{
+	background-color:#ee475b;
+	text-align:center;
+	color:#ffffff;
+}
+
+#slide5 h1 
+{
 	font-size: 3.8em;
 	letter-spacing: -3px;
 	line-height: 0px;
 	color:#ffffff;
 	font-weight: 700;
 }
-#slide4 h2 {
+
+#slide5 h2 
+{
 	font-size: 2em;
 	color: #ffffff;
 	line-height: 0px;
@@ -180,25 +304,34 @@ a:visited {
 	font-weight: 400;
 }
 
-
-
-
+#slide5 h3
+{
+	font-size: 1.4em;
+	color: #ffffff;
+	line-height: 1.25em;
+	padding-bottom:20px;	
+	font-weight: 200;
+}
 
 /* Tablet */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) 
+{
 
-#logo {
+#logo 
+{
 	width: 100%;
 	text-align: center;
 }
 
-#nav {
+#nav 
+{
 	width:100%;
 	text-align:center;
 	margin:10px 0;
 }
 
-.navigation{
+.navigation
+{
 	width: 100%;
 	float: center;
 	list-style: none;
@@ -206,60 +339,69 @@ a:visited {
 	padding:0;
 }
 
-.navigation li{
+.navigation li
+{
 	float: left;
 	width:25%;
 	padding:0;
 }
 
-.slide{
+.slide
+{
 	background-attachment: fixed;
 	width:100%;
 	position: relative;
 	padding:150px 0;
 }
 
-#decorative {
-	display:none;
-}
-
-#content {
+#content 
+{
 	text-align:center;
 	width:100%;
 }
 
-#slide1 h1 {
+#slide1 h1 
+{
 	line-height: 1em;
 }
-#slide1 h2 {
+
+#slide1 h2
+{
 	line-height: 1em;
 }
-#slide2 h1 {
+#slide2 h1
+{
 	line-height: 1em;
 }
-#slide2 h2 {
+
+#slide2 h2 
+{
 	line-height: 1em;
 }
-#slide3 h1 {
+#slide3 h1 
+{
 	line-height: 1em;
 }
-#slide3 h2 {
+#slide3 h2 
+{
 	line-height: 1em;
 }
-#slide4 h1 {
+#slide4 h1 
+{
 	line-height: 1em;
 }
-#slide4 h2 {
+
+#slide4 h2 
+{
 	line-height: 1em;
 }
 
 }
-
-
 
 
 /* Mobile */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 480px) 
+{
 
 #logo {
 	width: 100%;
