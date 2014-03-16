@@ -63,21 +63,21 @@ a:hover
                                     support rgba */
     background: rgba(0, 0, 0, .7);
 	z-index:100;
+	padding-top: 10px;
 	color:#8a8683;
 }
 
-#logo
+#name
 {
 	text-align: center;
-	margin: 10px 0;
 	margin-left:0;
 }
 
 #nav
 {
+	margin-left:0;
 	float:right;
-	text-align: right;
-	margin: 10px 0 0 0;
+	line-height: 1em;
 }
 
 .navigation
