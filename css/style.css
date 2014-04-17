@@ -104,44 +104,7 @@ a:hover
 	font-weight:bold;
 }
 
-
-/* General Slides */ 
-
-.slide
-{
-	background-attachment: fixed;
-	width:100%;
-	height:auto;
-	position: relative;
-	padding:30px 0;
-}
-
-/* Slide 1 */ 
-
-#slide1
-{
-	padding-top:80px;
-	background-color:#ee475b;
-	text-align:center;
-}
-
-#slide1 h1 
-{
-	font-size: 3.8em;
-	letter-spacing: -3px;
-	line-height: 0px;
-	color:#ffffff;
-	font-weight: 700;
-}
-
-#slide1 h2 
-{
-	font-size: 2em;
-	color: #ffffff;
-	line-height: 0px;
-	padding-bottom:20px;
-	font-weight: 400;
-}
+/** buttons */
 
 button,
 input,
@@ -180,6 +143,8 @@ submit
     box-shadow: 0px 0px 1px #777;
 }
 
+/** navigation */
+
 .sites_navigation
 {
 	float:center;
@@ -207,16 +172,65 @@ submit
 	color: #999999;
 }
 
+/* General Slides */ 
 
-/* Slide 2 */ 
+.slide
+{
+	background-attachment: fixed;
+	width:100%;
+	height:auto;
+	position: relative;
+	padding:30px 0;
+}
 
-#slide2
+.slide a:link,
+.slide a:visited 
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.slide a:hover 
+{
+	color: #eeeeee;
+	text-decoration: none;
+}
+
+/* introductory slide */ 
+
+#intro-slide
+{
+	padding-top:80px;
+	background-color:#ee475b;
+	text-align:center;
+}
+
+#intro-slide h1 
+{
+	font-size: 3.8em;
+	letter-spacing: -3px;
+	line-height: 0px;
+	color:#ffffff;
+	font-weight: 700;
+}
+
+#intro-slide h2 
+{
+	font-size: 2em;
+	color: #ffffff;
+	line-height: 0px;
+	padding-bottom:20px;
+	font-weight: 400;
+}
+
+/* projects title slide */ 
+
+#projects-title-slide
 {
 	background-color:#aaaaaa;
 	color:#ffffff;
 	text-align:center;
 }
-#slide2 h1 
+#projects-title-slide h1 
 {
 	font-size: 3.8em;
 	letter-spacing: -3px;
@@ -225,7 +239,7 @@ submit
 	font-weight: 700;
 }
 
-#slide2 h2 
+#projects-title-slide h2 
 {
 	font-size: 2em;
 	color: #ee475b;
@@ -241,9 +255,41 @@ submit
 }
 
 
+/* flyerpenguin */ 
+
+#flyerpenguin-slide
+{
+	background-color:#79CFFF;
+	color:#ffffff;
+}
+#flyerpenguin-slide h1 
+{
+	font-size: 3.8em;
+	letter-spacing: -3px;
+	line-height: 0px;
+	font-weight: 700;
+}
+#flyerpenguin-slide h2 
+{
+	font-size: 2em;
+	line-height: 0px;
+	padding-bottom:20px;
+	font-weight: 400;
+}
+
+#flyerpenguin-slide h3
+{
+	font-size: 1.4em;
+	color: #ffffff;
+	line-height: 1.25em;
+	padding-bottom:20px;
+	font-weight: 200;
+}
+
+
 /* CampusTaxiShare */ 
 
-#slide3
+#campus-taxi-share-slide
 {
 	background: url('../images/bg_ny.jpg');
 	background-repeat: no-repeat;
@@ -253,14 +299,14 @@ submit
 	background-color:#000000;
 	color:#ffffff;
 }
-#slide3 h1 
+#campus-taxi-share-slide h1 
 {
 	font-size: 3.8em;
 	letter-spacing: -3px;
 	line-height: 0px;
 	font-weight: 700;
 }
-#slide3 h2 
+#campus-taxi-share-slide h2 
 {
 	font-size: 2em;
 	line-height: 0px;
@@ -268,7 +314,7 @@ submit
 	font-weight: 400;
 }
 
-#slide3 h3
+#campus-taxi-share-slide h3
 {
 	font-size: 1.4em;
 	color: #ffffff;
@@ -277,25 +323,15 @@ submit
 	font-weight: 200;
 }
 
-#test
-{
-	background-color:#bde2df;
-	color:#ffffff;
-	text-align:center;
-	font-size: 2em;
-	font-weight: 400;
-}
+/* linger slide */
 
-
-/* Slide 4 */
-
-#slide4
+#linger-slide
 {
 	background-color:#2c2c2c;
 	color:#ffffff;
 }
 
-#slide4 h1 
+#linger-slide h1 
 {
 	font-size: 3.8em;
 	letter-spacing: -3px;
@@ -304,7 +340,7 @@ submit
 	font-weight: 700;
 }
 
-#slide4 h2 
+#linger-slide h2 
 {
 	font-size: 2em;
 	color: #bebdbd;
@@ -313,7 +349,7 @@ submit
 	font-weight: 400;
 }
 
-#slide4 h3
+#linger-slide h3
 {
 	font-size: 1.4em;
 	color: #9fe1de;
@@ -322,16 +358,16 @@ submit
 	font-weight: 200;
 }
 
-/* Slide 5 */
+/* contacts slide */
 
-#slide5
+#contact-slide
 {
 	background-color:#ee475b;
 	text-align:center;
 	color:#ffffff;
 }
 
-#slide5 h1 
+#contact-slide h1 
 {
 	font-size: 3.8em;
 	letter-spacing: -3px;
@@ -341,7 +377,7 @@ submit
 	font-weight: 700;
 }
 
-#slide5 h2 
+#contact-slide h2 
 {
 	font-size: 2em;
 	color: #ffffff;
@@ -350,7 +386,7 @@ submit
 	font-weight: 400;
 }
 
-#slide5 h3
+#contact-slide h3
 {
 	font-size: 1.4em;
 	color: #ffffff;
@@ -411,7 +447,7 @@ submit
 	margin:10px 0;
 }
 
-#slide1
+#intro-slide
 {
 	padding-top:80px;
 }
@@ -452,38 +488,38 @@ submit
 	width:100%;
 }
 
-#slide1 h1 
+#intro-slide h1 
 {
 	line-height: 1em;
 }
 
-#slide1 h2
+#intro-slide h2
 {
 	line-height: 1em;
 }
-#slide2 h1
-{
-	line-height: 1em;
-}
-
-#slide2 h2 
-{
-	line-height: 1em;
-}
-#slide3 h1 
-{
-	line-height: 1em;
-}
-#slide3 h2 
-{
-	line-height: 1em;
-}
-#slide4 h1 
+#projects-title-slide h1
 {
 	line-height: 1em;
 }
 
-#slide4 h2 
+#projects-title-slide h2 
+{
+	line-height: 1em;
+}
+#campus-taxi-share-slide h1 
+{
+	line-height: 1em;
+}
+#campus-taxi-share-slide h2 
+{
+	line-height: 1em;
+}
+#linger-slide h1 
+{
+	line-height: 1em;
+}
+
+#linger-slide h2 
 {
 	line-height: 1em;
 }
@@ -531,28 +567,28 @@ submit
 }
 
 
-#slide1 h1 {
+#intro-slide h1 {
 	line-height: 1em;
 }
-#slide1 h2 {
+#intro-slide h2 {
 	line-height: 1em;
 }
-#slide2 h1 {
+#projects-title-slide h1 {
 	line-height: 1em;
 }
-#slide2 h2 {
+#projects-title-slide h2 {
 	line-height: 1em;
 }
-#slide3 h1 {
+#campus-taxi-share-slide h1 {
 	line-height: 1em;
 }
-#slide3 h2 {
+#campus-taxi-share-slide h2 {
 	line-height: 1em;
 }
-#slide4 h1 {
+#linger-slide h1 {
 	line-height: 1em;
 }
-#slide4 h2 {
+#linger-slide h2 {
 	line-height: 1em;
 }
 
