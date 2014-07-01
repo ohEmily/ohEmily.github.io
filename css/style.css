@@ -9,6 +9,14 @@ body
 	background-color:#ffffff;
 }
 
+/* hide navbar on mobile */
+@media screen and (max-width: 600px) {
+	#nav-mobile
+	{
+		visibility: hidden;
+	}
+}
+	
 @font-face 
 {
   font-family: "Roboto";
