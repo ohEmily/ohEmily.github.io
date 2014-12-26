@@ -37,6 +37,7 @@ a:visited
 	color: #ffddbe;
 	text-decoration: none;
 }
+
 a:hover 
 {
 	color: #bde2df;
@@ -47,11 +48,10 @@ a:hover
 {
 	max-width:100%;
 	max-height:100%;
-	border-radius: 50%;
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
+	border-radius: 20%;
+	-webkit-border-radius: 20%;
+	-moz-border-radius: 20%;
 	overflow:hidden;
-	background: url('../images/me_round.png') no-repeat;
 }
 
 #decorative 
@@ -331,36 +331,46 @@ submit
 	font-weight: 200;
 }
 
-/* linger slide */
+/* cifra slide */
 
-#linger-slide
+#cifra-slide
 {
-	background-color:#2c2c2c;
-	color:#ffffff;
+	background-color:#c7c7c7;
 }
 
-#linger-slide h1 
+#cifra-slide a:link,
+#cifra-slide a:visited 
+{
+	color:#2c2c2c;
+} 
+
+#cifra-slide a:hover
+{
+	color:#525252;
+}
+
+#cifra-slide h1
 {
 	font-size: 3.8em;
 	letter-spacing: -3px;
 	line-height: 0px;
-	color:#bebdbd;
+	color:#2c2c2c;
 	font-weight: 700;
 }
 
-#linger-slide h2 
+#cifra-slide h2 
 {
 	font-size: 2em;
-	color: #bebdbd;
+	color: #2c2c2c;
 	line-height: 0px;
 	padding-bottom:20px;
 	font-weight: 400;
 }
 
-#linger-slide h3
+#cifra-slide h3
 {
 	font-size: 1.4em;
-	color: #9fe1de;
+	color: #2c2c2c;
 	line-height: 1.25em;
 	padding-bottom:20px;	
 	font-weight: 200;
@@ -522,12 +532,12 @@ submit
 {
 	line-height: 1em;
 }
-#linger-slide h1 
+#cifra-slide h1 
 {
 	line-height: 1em;
 }
 
-#linger-slide h2 
+#cifra-slide h2 
 {
 	line-height: 1em;
 }
@@ -593,10 +603,10 @@ submit
 #campus-taxi-share-slide h2 {
 	line-height: 1em;
 }
-#linger-slide h1 {
+#cifra-slide h1 {
 	line-height: 1em;
 }
-#linger-slide h2 {
+#cifra-slide h2 {
 	line-height: 1em;
 }
 
