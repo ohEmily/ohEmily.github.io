@@ -1,10 +1,36 @@
 body
 {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Ubuntu Mono', sans-serif;
 	font-weight: 400;
-	font-size: 1.5em;
+	font-size: 1.2em;
 	color: #eeeeee;
 	background-color:#ee475b;
+}
+
+b
+{
+	color: #dddddd;
+}
+
+div
+{
+	padding-top: 10px;
+}
+
+p
+{
+	padding-top: 5px;
+}
+
+a
+{
+	color: #6699ff;
+	text-decoration: underline;
+}
+
+.main
+{
+	text-align: center;
 }
 
 /* source: http://jsfiddle.net/hashem/ut5sbqvz/ */
@@ -54,9 +80,10 @@ body
 
 h1
 {
+	font-family: 'Ubuntu Mono', sans-serif;
 	font-weight: 700;
+	font-size: 5em;
 }
-
 
 .top-right
 {
@@ -65,49 +92,56 @@ h1
     right: 5%;
 }
 
-img
+.img-responsive-height
 {
-	width:180px;
-	height:auto;
+  display: block;
+  width: auto;
+  max-height: 100%
+}
+
+#photo
+{
+	width: 180px;
+	height: auto;
 	border-radius: 150px;
 	-webkit-border-radius: 150px;
 	-moz-border-radius: 150px;
+
+	/* transition for hover off */
+	-webkit-transition: all 0.25s;
 }
 
-/** buttons */
-button,
-input,
-optgroup,
-select,
-textarea,
-submit
+/* http://jsfiddle.net/byrichardpowell/38MGS/1/ */
+#photo:hover
 {
-	color: #dddddd;
-	font: inherit;
-	width:95%;
-	margin-top:5px;
-	margin-bottom:5px;
-	padding:8px;
-	border:0;
-	font-weight:bold;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius:6px;
+    -webkit-filter: blur(8px);
+    -webkit-transform: scale(1.05, 1.05);
+    opacity: 0.65;
+    -webkit-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
 }
 
-.mybutton
+.icon
 {
-	overflow: visible;
-	border:0;
-	background:#d44354;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius:6px;
+	max-width: 64px;
+	max-height: auto;
 }
 
-.mybutton:hover 
+/* typing effect */
+/* http://www.paulund.co.uk/create-typing-effect */
+.css-typing
 {
-    border: none;
-    background:#be2d3e;
-    box-shadow: 0px 0px 1px #777;
+    width: 7em;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-animation: type 2s steps(14, end);
+    animation: type 2s steps(14, end);
+}
+
+@keyframes type{
+    from { width: 0; }
+}
+
+@-webkit-keyframes type{
+    from { width: 0; }
 }
