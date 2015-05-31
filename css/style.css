@@ -2,7 +2,7 @@ body
 {
 	font-family: 'Ubuntu Mono', sans-serif;
 	font-weight: 400;
-	font-size: 1.2em;
+	font-size: 1.4em;
 	color: #eeeeee;
 	background-color:#ee475b;
 }
@@ -24,8 +24,14 @@ p
 
 a
 {
-	color: #6699ff;
+	color: #9EBEFF;
 	text-decoration: underline;
+  font-weight: bold;
+}
+
+a:hover
+{
+  color: #7297E0;
 }
 
 .main
@@ -37,16 +43,7 @@ a
 .vertical-center
 {
   min-height: 100%;  /* Fallback for vh unit */
-  min-height: 100vh; /* You might also want to use
-                        'height' property instead.
-                        
-                        Note that for percentage values of
-                        'height' or 'min-height' properties,
-                        the 'height' of the parent element
-                        should be specified explicitly.
-  
-                        In this case the parent of '.vertical-center'
-                        is the <body> element */
+  min-height: 100vh; 
 
   /* Make it a flex container */
   display: -webkit-box;
@@ -66,10 +63,6 @@ a
      we need to specify the width of the flex container */
   width: 100%;
   
-  /* Also 'margin: 0 auto' doesn't have any effect on flex items in such web browsers
-     hence the bootstrap's container won't be aligned to the center anymore.
-  
-     Therefore, we should use the following declarations to get it centered again */
          -webkit-box-pack : center;
             -moz-box-pack : center;
             -ms-flex-pack : center;
@@ -114,11 +107,11 @@ h1
 /* http://jsfiddle.net/byrichardpowell/38MGS/1/ */
 #photo:hover
 {
-    -webkit-filter: blur(8px);
-    -webkit-transform: scale(1.05, 1.05);
-    opacity: 0.65;
-    -webkit-transition: all 0.25s ease-out;
-    transition: all 0.25s ease-out;
+  -webkit-transform: scale(1.05, 1.05);
+  opacity: 0.65;
+  -webkit-filter:grayscale(100%);
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
 }
 
 .icon
@@ -138,11 +131,11 @@ h1
 /* http://www.paulund.co.uk/create-typing-effect */
 .css-typing
 {
-    width: 7em;
-    white-space: nowrap;
-    overflow: hidden;
-    -webkit-animation: type 2s steps(14, end);
-    animation: type 2s steps(14, end);
+  width: 7em;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-animation: type 2s steps(14, end);
+  animation: type 2s steps(14, end);
 }
 
 @keyframes type{
