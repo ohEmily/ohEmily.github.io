@@ -103,9 +103,9 @@ h1
 {
 	width: 180px;
 	height: auto;
-	border-radius: 150px;
-	-webkit-border-radius: 150px;
-	-moz-border-radius: 150px;
+	border-radius: 90px;
+	-webkit-border-radius: 90px;
+	-moz-border-radius: 90px;
 
 	/* transition for hover off */
 	-webkit-transition: all 0.25s;
@@ -123,8 +123,15 @@ h1
 
 .icon
 {
-	max-width: 64px;
-	max-height: auto;
+	/* transition for hover off */
+	-webkit-transition: all 0.25s;
+}
+
+.icon:hover
+{
+	-webkit-filter: blur(3px);
+	-webkit-transition: all 0.25s ease-out;
+	transition: all 0.25s ease-out;
 }
 
 /* typing effect */
