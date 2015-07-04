@@ -25,14 +25,9 @@ p
 a
 {
 	color: #9EBEFF;
-	text-decoration: underline;
+  text-decoration: none;
   font-weight: bold;
 }
-
-.no-underline {
-  text-decoration: none;
-}
-
 
 a:hover
 {
@@ -80,7 +75,7 @@ h1
 {
 	font-family: 'Ubuntu Mono', sans-serif;
 	font-weight: 700;
-	font-size: 5em;
+	font-size: 4.2em;
 }
 
 .top-right
