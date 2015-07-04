@@ -29,12 +29,17 @@ a
   font-weight: bold;
 }
 
+.no-underline {
+  text-decoration: none;
+}
+
+
 a:hover
 {
   color: #7297E0;
 }
 
-.main
+.body-text
 {
 	text-align: center;
 }
@@ -127,21 +132,23 @@ h1
 	transition: all 0.25s ease-out;
 }
 
-/* typing effect */
-/* http://www.paulund.co.uk/create-typing-effect */
-.css-typing
-{
-  width: 7em;
-  white-space: nowrap;
-  overflow: hidden;
-  -webkit-animation: type 2s steps(14, end);
-  animation: type 2s steps(14, end);
-}
+@media (min-width: 992px) {
+  /* typing effect */
+  /* http://www.paulund.co.uk/create-typing-effect */
+  .css-typing
+  {
+    width: 7em;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-animation: type 2s steps(14, end);
+    animation: type 2s steps(14, end);
+  }
 
-@keyframes type{
-    from { width: 0; }
-}
+  @keyframes type {
+      from { width: 0; }
+  }
 
-@-webkit-keyframes type{
-    from { width: 0; }
+  @-webkit-keyframes type {
+      from { width: 0; }
+  }
 }
