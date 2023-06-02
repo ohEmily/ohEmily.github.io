@@ -1,20 +1,41 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<title>Emily Pakulski, software person</title>
-		
-		<link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" type="text/css">
-		<link rel="stylesheet" href="css/style.css" type="text/css">
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	</head>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <title>Emily Pakulski, software person</title>
+      <link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" type="text/css">
+      <link rel="stylesheet" href="css/style.css" type="text/css">
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+   </head>
+   <body>
+      <div class="container">
+         <div class="animated-text">hey, i'm emily!</div>
+         <a class="resume-link" href="https://drive.google.com/file/d/0B9pvvLQIYkLcdFQyY3MwSmd3cm8/edit" target="_blank">resume</a>
+         <img class="portrait" src="images/portrait.jpg" alt="what I look like">
+      </div>
+   </body>
+   <script>
+	const portrait = document.querySelector('.portrait');
+	let imageIndex = 0;
+	let imageCount = 4;
 
-	<body>
-	  <div class="container">
-	    <div class="animated-text">hey, i'm emily!</div>
-	    <a class="resume-link" href="https://drive.google.com/file/d/0B9pvvLQIYkLcdFQyY3MwSmd3cm8/edit" target="_blank">resume</a>
-	    <img class="portrait" src="images/portrait.jpg" alt="what I look like">
-	  </div>
-	</body>
+	portrait.addEventListener('mousedown', function() {
+	    imageIndex++;
+
+	    switch (imageIndex % imageCount) {
+	        case 1:
+	            portrait.src = 'images/snowboarding-alps.jpg';
+	            break;
+	        case 2:
+	            portrait.src = 'images/bikes.jpg';
+	            break;
+	        case 3:
+	            portrait.src = 'images/cold-california.jpg';
+	            break;
+	        default:
+	            portrait.src = 'images/portrait.jpg';
+	    }
+	});
+   </script>
 </html>
