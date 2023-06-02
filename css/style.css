@@ -21,8 +21,10 @@ body
 .animated-text {
   white-space: pre;
   overflow: hidden;
+  border-right: .1em solid lightblue;
   width: 15em;
-  animation: typing 4s steps(15, end) forwards, 0.1s step-end infinite;
+  animation: typing 3s steps(15, end) forwards, blink-caret .6s step-end infinite;
+
 }
 
 @keyframes typing {
@@ -32,6 +34,11 @@ body
   100% {
     width: 450px;
   }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: lightblue; }
 }
 
 .main-text
