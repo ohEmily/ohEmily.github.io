@@ -1,149 +1,64 @@
 body
 {
 	font-family: 'Ubuntu Mono', sans-serif;
-	font-weight: 400;
-	font-size: 1.6em;
+	font-weight: 500;
+	font-size: 6em;
 	color: #eeeeee;
 	background-color:#ee475b;
 }
 
-b
+.container
 {
-	color: #dddddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-div
-{
-	padding-top: 10px;
+.animated-text {
+  white-space: pre;
+  overflow: hidden;
+  width: 500px; /* Adjust the width to fit the text */
+  animation: typing 4s steps(15, end) forwards, blink-caret 0.1s step-end infinite;
 }
 
-p
-{
-	padding-top: 5px;
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 450px; /* Adjust the width to fit the text */
+  }
 }
 
-a
+@keyframes blink-caret {
+  from, to {
+    border-right-color: transparent;
+  }
+  50% {
+    border-right-color: black; /* Adjust the color if needed */
+  }
+}
+
+.resume-link
 {
-	color: #9EBEFF;
+  margin-top: 10px;
+  font-size: 16px;
+  color: lightblue;
   text-decoration: none;
-  font-weight: bold;
 }
 
-a:hover
+.portrait
 {
-  color: #7297E0;
+  margin-top: 10px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: filter 0.1s ease;
 }
 
-.body-text
-{
-	text-align: center;
-}
-
-/* source: http://jsfiddle.net/hashem/ut5sbqvz/ */
-.vertical-center
-{
-  min-height: 100%;  /* Fallback for vh unit */
-  min-height: 100vh; 
-
-  /* Make it a flex container */
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex; 
-  
-  /* Align the bootstrap's container vertically */
-    -webkit-box-align : center;
-  -webkit-align-items : center;
-       -moz-box-align : center;
-       -ms-flex-align : center;
-          align-items : center;
-  
-  /* In legacy web browsers such as Firefox 9
-     we need to specify the width of the flex container */
-  width: 100%;
-  
-         -webkit-box-pack : center;
-            -moz-box-pack : center;
-            -ms-flex-pack : center;
-  -webkit-justify-content : center;
-          justify-content : center;
-  
-}
-
-h1
-{
-	font-family: 'Ubuntu Mono', sans-serif;
-	font-weight: 700;
-	font-size: 4.2em;
-}
-
-.top-right
-{
-    position: fixed;
-    top: 5%;
-    right: 5%;
-}
-
-.img-responsive-height
-{
-  display: block;
-  width: auto;
-  max-height: 100%
-}
-
-#photo
-{
-	width: 180px;
-	height: auto;
-	border-radius: 90px;
-	-webkit-border-radius: 90px;
-	-moz-border-radius: 90px;
-
-	/* transition for hover off */
-	-webkit-transition: all 0.25s;
-}
-
-/* http://jsfiddle.net/byrichardpowell/38MGS/1/ */
-#photo:hover
-{
-  -webkit-transform: scale(1.05, 1.05);
-  opacity: 0.65;
-  -webkit-filter:grayscale(100%);
-  -webkit-transition: all 0.25s ease-out;
-  transition: all 0.25s ease-out;
-}
-
-.icon
-{
-	/* transition for hover off */
-	-webkit-transition: all 0.25s;
-}
-
-.icon:hover
-{
-	-webkit-filter: blur(3px);
-	-webkit-transition: all 0.25s ease-out;
-	transition: all 0.25s ease-out;
-}
-
-@media (min-width: 992px) {
-  /* typing effect */
-  /* http://www.paulund.co.uk/create-typing-effect */
-  .css-typing
-  {
-    width: 7em;
-    white-space: nowrap;
-    overflow: hidden;
-    -webkit-animation: type 2s steps(14, end);
-    animation: type 2s steps(14, end);
-  }
-
-  @keyframes type {
-      from { width: 0; }
-  }
-
-  @-webkit-keyframes type {
-      from { width: 0; }
-  }
+.portrait:hover {
+  filter: grayscale(30%);
 }
