@@ -5,6 +5,8 @@ body
 	font-size: 6em;
 	color: #eeeeee;
 	background-color:#ee475b;
+  margin: 0;
+  padding: 0;
 }
 
 .container
@@ -19,8 +21,8 @@ body
 .animated-text {
   white-space: pre;
   overflow: hidden;
-  width: 500px; /* Adjust the width to fit the text */
-  animation: typing 4s steps(15, end) forwards, blink-caret 0.1s step-end infinite;
+  width: 15em;
+  animation: typing 4s steps(15, end) forwards, 0.1s step-end infinite;
 }
 
 @keyframes typing {
@@ -28,16 +30,7 @@ body
     width: 0;
   }
   100% {
-    width: 450px; /* Adjust the width to fit the text */
-  }
-}
-
-@keyframes blink-caret {
-  from, to {
-    border-right-color: transparent;
-  }
-  50% {
-    border-right-color: black; /* Adjust the color if needed */
+    width: 450px;
   }
 }
 
