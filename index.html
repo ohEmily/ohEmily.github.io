@@ -10,15 +10,30 @@
    </head>
    <body>
       <div class="container">
-         <div class="animated-text">hey, i'm emily!</div>
-         <a class="resume-link" href="https://drive.google.com/file/d/0B9pvvLQIYkLcdFQyY3MwSmd3cm8/edit" target="_blank">resume</a>
-         <img class="portrait" src="images/portrait.jpg" alt="what I look like">
+        <div class="animated-text">hey, i'm emily!</div>
+        <div class="main-text">
+            here is my
+            <a class="resume-link" href="https://drive.google.com/file/d/0B9pvvLQIYkLcdFQyY3MwSmd3cm8/edit" target="_blank">resume</a>
+		</div>
+        <img class="portrait" src="images/portrait.jpg" alt="what I look like">
+        <div class="main-text" id="hint">
+            hint: tap pic for good memories sampler
+        </div>
       </div>
    </body>
    <script>
 	const portrait = document.querySelector('.portrait');
+	const hint = document.querySelector('#hint');
 	let imageIndex = 0;
 	let imageCount = 4;
+
+	portrait.addEventListener('mouseover', function () {
+		hint.style.opacity = '20%';
+	});
+
+	portrait.addEventListener('mouseout', function() {
+		hint.style.opacity = '0%';
+	});
 
 	portrait.addEventListener('mousedown', function() {
 	    imageIndex++;

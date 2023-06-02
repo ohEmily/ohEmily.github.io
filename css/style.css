@@ -41,12 +41,22 @@ body
   }
 }
 
-.resume-link
+.main-text
 {
   margin-top: 10px;
-  font-size: 16px;
+  font-size: .3em;
+  font-weight: 200;
+}
+
+.resume-link
+{
   color: lightblue;
-  text-decoration: none;
+}
+
+#hint
+{
+  color: white;
+  opacity: 0%;
 }
 
 .portrait
