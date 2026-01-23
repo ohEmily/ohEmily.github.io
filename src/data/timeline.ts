@@ -13,12 +13,16 @@ export interface EmployerEntry {
   roles: Role[];
 }
 
-export interface EducationEntry {
-  location: string;
+export interface Degree {
   dateRange: string;
   title: string;
-  institution: string;
   description: string;
+}
+
+export interface EducationEntry {
+  institution: string;
+  location: string;
+  degrees: Degree[];
 }
 
 // Work experience grouped by employer (most recent first)
@@ -82,11 +86,15 @@ export const experienceData: EmployerEntry[] = [
 // Education timeline (most recent first)
 export const educationData: EducationEntry[] = [
   {
-    location: "New York, NY",
-    dateRange: "2012 - 2016",
-    title: "Bachelor of Arts (with honors), Computer Science",
     institution: "Columbia University",
-    description:
-      "Andrew P. Kosoresow Memorial Award for Excellence in Teaching and Service (2016). Served as head teaching assistant or teaching assistant for Operating Systems (spring 2016), Advanced Programming (spring 2015 and 2016), and Fundamentals of Computer Systems (summer 2015)",
+    location: "New York, NY",
+    degrees: [
+      {
+        dateRange: "2012 - 2016",
+        title: "Bachelor of Arts (with honors), Computer Science",
+        description:
+          "Andrew P. Kosoresow Memorial Award for Excellence in Teaching and Service (2016). Served as head teaching assistant or teaching assistant for Operating Systems (spring 2016), Advanced Programming (spring 2015 and 2016), and Fundamentals of Computer Systems (summer 2015)",
+      },
+    ],
   },
 ];
