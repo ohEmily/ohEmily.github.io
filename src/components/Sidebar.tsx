@@ -11,7 +11,7 @@ export default function Sidebar() {
     <aside className="sidebar">
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', flexGrow: 1 }}>
         {/* Typing animation header */}
-        <header style={{ marginBottom: '4rem' }}>
+        <header className="sidebar-header">
           <h1>
             <TypingAnimation />
           </h1>
