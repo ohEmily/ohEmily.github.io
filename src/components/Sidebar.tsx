@@ -11,14 +11,14 @@ export default function Sidebar() {
     <aside className="sidebar">
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', flexGrow: 1 }}>
         {/* Typing animation header */}
-        <header>
+        <header style={{ marginBottom: '4rem' }}>
           <h1>
             <TypingAnimation />
           </h1>
         </header>
 
         {/* Photo and nav side-by-side */}
-        <div style={{ display: 'flex', gap: '2rem' }}>
+        <div className="photo-nav-container">
           {/* Interactive photo sampler */}
           <PhotoSampler />
 
