@@ -8,13 +8,14 @@ import { dirname, join } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+const projectRoot = join(__dirname, '..');
 
 async function build() {
   try {
     console.log('🔨 Building production bundle...');
     
     await esbuild.build({
-      entryPoints: [join(__dirname, 'src/main.tsx')],
+      entryPoints: [join(projectRoot, 'src/main.tsx')],
       bundle: true,
       minify: true,
       format: 'esm',
