@@ -2,6 +2,8 @@
 // Main application component with React Router
 // Sets up routes and wraps pages in the split-screen layout
 
+import React from "react";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Sidebar.tsx";
 import Home from "./pages/Home.tsx";

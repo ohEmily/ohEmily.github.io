@@ -4,7 +4,8 @@
   "description": "A modern, terminal-inspired portfolio website built with Deno and React.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node build.js"
   },
   "repository": {
     "type": "git",
@@ -13,12 +14,16 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/ohEmily/ohEmily.github.io/issues"
   },
   "homepage": "https://github.com/ohEmily/ohEmily.github.io#readme",
   "dependencies": {
-    "puppeteer": "^24.36.0"
+    "puppeteer": "^24.36.0",
+    "esbuild": "^0.24.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.22.0"
   }
 }

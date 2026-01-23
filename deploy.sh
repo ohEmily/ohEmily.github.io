@@ -6,7 +6,7 @@
 set -e  # Exit on any error
 
 echo "🔨 Building production bundle..."
-deno task build
+npm run build
 
 echo "📦 Preparing deployment files..."
 # Create temporary directory for gh-pages content
@@ -26,6 +26,9 @@ cp favicon.ico "$TEMP_DIR/" 2>/dev/null || echo "No favicon found, skipping..."
 
 # Create 404.html for client-side routing fallback
 cp "$TEMP_DIR/index.html" "$TEMP_DIR/404.html"
+
+# Add .nojekyll to prevent GitHub Pages from processing files through Jekyll
+touch "$TEMP_DIR/.nojekyll"
 
 echo "🚀 Deploying to gh-pages branch..."
 # Get current commit hash for reference
