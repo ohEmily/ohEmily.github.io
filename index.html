@@ -1,57 +1,16 @@
-<!DOCTYPE HTML>
-<html>
-   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-      <meta name="viewport" content="width=device-width, initial-scale=.8">
-      <title>Emily Pakulski, software person</title>
-      <link href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700' rel='stylesheet' type='text/css'>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" type="text/css">
-      <link rel="stylesheet" href="css/style.css" type="text/css">
-      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-   </head>
-   <body>
-      <div class="container">
-        <div class="animated-text">hey, i'm emily!</div>
-        <div class="main-text">
-            here is my
-            <a class="resume-link" href="https://drive.google.com/file/d/0B9pvvLQIYkLcdFQyY3MwSmd3cm8/view?usp=sharing&resourcekey=0-OR7VYCgnUtbLOlSJ3AN3wA" target="_blank">resume</a>
-		</div>
-        <img class="portrait" src="images/portrait.jpg" alt="what I look like">
-        <div class="main-text" id="hint">
-            hint: tap pic for good memories sampler
-        </div>
-      </div>
-   </body>
-   <script>
-	const portrait = document.querySelector('.portrait');
-	const hint = document.querySelector('#hint');
-	let imageIndex = 0;
-	let imageCount = 4;
-
-	portrait.addEventListener('mouseover', function () {
-		hint.style.opacity = '20%';
-	});
-
-	portrait.addEventListener('mouseout', function() {
-		hint.style.opacity = '0%';
-	});
-
-	portrait.addEventListener('mousedown', function() {
-	    imageIndex++;
-
-	    switch (imageIndex % imageCount) {
-	        case 1:
-	            portrait.src = 'images/snowboarding-alps.jpg';
-	            break;
-	        case 2:
-	            portrait.src = 'images/bikes.jpg';
-	            break;
-	        case 3:
-	            portrait.src = 'images/cold-california.jpg';
-	            break;
-	        default:
-	            portrait.src = 'images/portrait.jpg';
-	    }
-	});
-   </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emily Pakulski - Software Engineer</title>
+  <link rel="stylesheet" href="src/styles/global.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div id="root"></div>
+  <!-- Development: uses src/main.tsx directly -->
+  <!-- Production: deploy.sh will replace this with bundle.js -->
+  <script type="module" src="src/main.tsx"></script>
+</body>
 </html>

@@ -1,0 +1,16 @@
+# Deno
+.deno/
+
+# Build output (will be in gh-pages branch)
+bundle.js
+build/
+
+# System files
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+node_modules
