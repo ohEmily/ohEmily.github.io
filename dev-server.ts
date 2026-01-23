@@ -84,11 +84,31 @@ serve(
     }
 
     // For all other files, serve them normally
-    return serveDir(req, {
+    // But for SPA routing, if the file doesn't exist and it's not a static asset,
+    // serve index.html so React Router can handle the route
+    const response = await serveDir(req, {
       fsRoot: ".",
       showDirListing: false,
-      quiet: false,
+      quiet: true,
     });
+
+    // If file not found and it's likely a client-side route (not a file with extension),
+    // serve index.html for SPA routing
+    if (response.status === 404 && !pathname.includes(".")) {
+      try {
+        const indexHtml = await Deno.readTextFile("./index.html");
+        return new Response(indexHtml, {
+          headers: {
+            "content-type": "text/html; charset=utf-8",
+          },
+        });
+      } catch {
+        // If index.html doesn't exist, return the original 404
+        return response;
+      }
+    }
+
+    return response;
   },
   { port: PORT }
 );
