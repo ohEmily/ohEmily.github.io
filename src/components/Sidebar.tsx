@@ -2,11 +2,75 @@
 // Left sidebar containing intro, photo, navigation, and social links
 // Sticky on desktop, stacks at top on mobile
 
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import TypingAnimation from "./TypingAnimation.tsx";
 import PhotoSampler from "./PhotoSampler.tsx";
 
+const sectionIds = ["about", "experience", "education"];
+
 export default function Sidebar() {
+  const [activeSection, setActiveSection] = useState("about");
+  const location = useLocation();
+
+  useEffect(() => {
+    // Only run on home page
+    if (location.pathname !== "/") {
+      setActiveSection("");
+      return;
+    }
+
+    const handleScroll = () => {
+      // Try to get the scrollable container (.main-content) or fall back to window
+      const scrollContainer = document.querySelector(".main-content");
+      const scrollTop = scrollContainer ? scrollContainer.scrollTop : window.scrollY;
+      const scrollHeight = scrollContainer ? scrollContainer.scrollHeight : document.body.scrollHeight;
+      const clientHeight = scrollContainer ? scrollContainer.clientHeight : window.innerHeight;
+      const offset = 150;
+
+      // Check if scrolled to bottom - highlight last section
+      if (scrollTop + clientHeight >= scrollHeight - 50) {
+        setActiveSection(sectionIds[sectionIds.length - 1]);
+        return;
+      }
+
+      for (const id of sectionIds) {
+        const element = document.getElementById(id);
+        if (element) {
+          // Get position relative to the scroll container
+          const rect = element.getBoundingClientRect();
+          const containerRect = scrollContainer?.getBoundingClientRect();
+          const containerTop = containerRect?.top ?? 0;
+          const relativeTop = rect.top - containerTop + scrollTop;
+          
+          if (scrollTop + offset >= relativeTop && scrollTop + offset < relativeTop + element.offsetHeight) {
+            setActiveSection(id);
+            break;
+          }
+        }
+      }
+    };
+
+    // Get the scroll container
+    const scrollContainer = document.querySelector(".main-content");
+    
+    // Initial check after a brief delay to ensure DOM is ready
+    setTimeout(handleScroll, 100);
+
+    // Listen to both the container and window (for mobile)
+    if (scrollContainer) {
+      scrollContainer.addEventListener("scroll", handleScroll);
+    }
+    window.addEventListener("scroll", handleScroll);
+    
+    return () => {
+      if (scrollContainer) {
+        scrollContainer.removeEventListener("scroll", handleScroll);
+      }
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [location.pathname]);
+
   return (
     <aside className="sidebar">
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', flexGrow: 1 }}>
@@ -26,13 +90,28 @@ export default function Sidebar() {
           <nav aria-label="Main navigation">
             <ul>
               <li>
-                <a href="#about">About</a>
+                <a 
+                  href="#about" 
+                  className={activeSection === "about" ? "nav-active" : ""}
+                >
+                  About
+                </a>
               </li>
               <li>
-                <a href="#experience">Experience</a>
+                <a 
+                  href="#experience"
+                  className={activeSection === "experience" ? "nav-active" : ""}
+                >
+                  Experience
+                </a>
               </li>
               <li>
-                <a href="#education">Education</a>
+                <a 
+                  href="#education"
+                  className={activeSection === "education" ? "nav-active" : ""}
+                >
+                  Education
+                </a>
               </li>
               <li>
                 <Link to="/resume">Resume</Link>

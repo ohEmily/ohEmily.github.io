@@ -214,6 +214,14 @@ nav a {
   font-size: clamp(0.75rem, 2.5vw, 0.875rem);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  padding: 0.25rem 0.5rem;
+  margin-left: -0.5rem;
+  border-radius: 3px;
+  transition: background-color 0.2s ease;
+}
+
+nav a.nav-active {
+  background-color: var(--bg-primary);
 }
 
 /* Social links */
