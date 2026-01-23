@@ -1,19 +1,32 @@
 // Timeline.tsx
-// Container component for timeline entries
-// Maps through data and renders TimelineEntry components
+// Container components for experience and education timelines
 
-import TimelineEntry from "./TimelineEntry.tsx";
-import type { TimelineEntry as TimelineEntryType } from "../data/timeline.ts";
+import { EmployerTimelineEntry, EducationTimelineEntry } from "./TimelineEntry.tsx";
+import type { EmployerEntry, EducationEntry } from "../data/timeline.ts";
 
-interface TimelineProps {
-  entries: TimelineEntryType[];
+interface ExperienceTimelineProps {
+  entries: EmployerEntry[];
 }
 
-export default function Timeline({ entries }: TimelineProps) {
+export function ExperienceTimeline({ entries }: ExperienceTimelineProps) {
   return (
     <div className="timeline">
       {entries.map((entry, index) => (
-        <TimelineEntry key={index} entry={entry} />
+        <EmployerTimelineEntry key={index} entry={entry} />
+      ))}
+    </div>
+  );
+}
+
+interface EducationTimelineProps {
+  entries: EducationEntry[];
+}
+
+export function EducationTimeline({ entries }: EducationTimelineProps) {
+  return (
+    <div className="timeline">
+      {entries.map((entry, index) => (
+        <EducationTimelineEntry key={index} entry={entry} />
       ))}
     </div>
   );

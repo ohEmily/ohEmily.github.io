@@ -268,18 +268,18 @@ nav a {
 }
 
 .timeline-meta {
-  font-size: 0.875rem;
-  color: var(--text-muted);
+  font-size: 1.35rem;
+  color: var(--text-primary);
 }
 
 .timeline-location {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .timeline-heading {
-  color: var(--text-primary);
+  color: var(--accent-yellow);
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   margin-top: 0.25rem;
 }
 
@@ -288,22 +288,23 @@ nav a {
   line-height: 1.6;
 }
 
-.timeline-skills {
-  margin-top: 0.75rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  align-items: baseline;
+/* Grouped roles within an employer */
+.timeline-roles {
+  margin-top: 0.5rem;
 }
 
-.timeline-skills-label {
-  font-size: 0.875rem;
+.timeline-role {
+  margin-bottom: 1.5rem;
+}
+
+.timeline-role:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-role-dates {
+  font-weight: 400;
+  font-size: 1rem;
   color: var(--text-muted);
-}
-
-.timeline-tag {
-  font-size: 0.875rem;
-  color: var(--accent-yellow);
 }
 
 /* Resume iframe */

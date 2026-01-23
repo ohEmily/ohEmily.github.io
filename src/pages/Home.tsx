@@ -2,7 +2,7 @@
 // Main page containing About, Experience, and Education sections
 // Scrollable content area on the right side of split layout
 
-import Timeline from "../components/Timeline.tsx";
+import { ExperienceTimeline, EducationTimeline } from "../components/Timeline.tsx";
 import { experienceData, educationData } from "../data/timeline.ts";
 
 export default function Home() {
@@ -28,13 +28,13 @@ export default function Home() {
       {/* Experience section */}
       <section id="experience">
         <h2>Experience</h2>
-        <Timeline entries={experienceData} />
+        <ExperienceTimeline entries={experienceData} />
       </section>
 
       {/* Education section */}
       <section id="education">
         <h2>Education</h2>
-        <Timeline entries={educationData} />
+        <EducationTimeline entries={educationData} />
       </section>
     </main>
   );

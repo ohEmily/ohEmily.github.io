@@ -1,15 +1,43 @@
 // TimelineEntry.tsx
-// Individual timeline entry component
-// Displays location, dates, title, description, and skill tags
-// Styled after Marina Aísa's timeline design
+// Timeline entry components for employer and education entries
 
-import type { TimelineEntry as TimelineEntryType } from "../data/timeline.ts";
+import type { EmployerEntry, EducationEntry } from "../data/timeline.ts";
 
-interface TimelineEntryProps {
-  entry: TimelineEntryType;
+interface EmployerEntryProps {
+  entry: EmployerEntry;
 }
 
-export default function TimelineEntry({ entry }: TimelineEntryProps) {
+export function EmployerTimelineEntry({ entry }: EmployerEntryProps) {
+  return (
+    <article className="timeline-entry">
+      {/* Company header */}
+      <div className="timeline-meta">
+        <span className="timeline-location">{entry.company}</span>
+        {" · "}
+        <span className="timeline-dates">{entry.location}</span>
+      </div>
+
+      {/* Roles at this company */}
+      <div className="timeline-roles">
+        {entry.roles.map((role, index) => (
+          <div key={index} className="timeline-role">
+            <h3 className="timeline-heading">
+              {role.title}
+              <span className="timeline-role-dates"> · {role.dateRange}</span>
+            </h3>
+            <p className="timeline-description">{role.description}</p>
+          </div>
+        ))}
+      </div>
+    </article>
+  );
+}
+
+interface EducationEntryProps {
+  entry: EducationEntry;
+}
+
+export function EducationTimelineEntry({ entry }: EducationEntryProps) {
   return (
     <article className="timeline-entry">
       {/* Location and date range */}
@@ -19,23 +47,13 @@ export default function TimelineEntry({ entry }: TimelineEntryProps) {
         <span className="timeline-dates">{entry.dateRange}</span>
       </div>
 
-      {/* Role title and company */}
+      {/* Degree and institution */}
       <h3 className="timeline-heading">
-        {entry.title} · {entry.company}
+        {entry.title} · {entry.institution}
       </h3>
 
       {/* Description */}
       <p className="timeline-description">{entry.description}</p>
-
-      {/* Skills learned */}
-      <div className="timeline-skills">
-        <span className="timeline-skills-label">Skill tags:</span>
-        {entry.skills.map((skill, index) => (
-          <span key={index} className="timeline-tag">
-            {skill}
-          </span>
-        ))}
-      </div>
     </article>
   );
 }
