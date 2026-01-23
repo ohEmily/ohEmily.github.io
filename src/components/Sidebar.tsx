@@ -29,7 +29,9 @@ export default function Sidebar() {
       const offset = 150;
 
       // Check if scrolled to bottom - highlight last section
-      if (scrollTop + clientHeight >= scrollHeight - 50) {
+      // Only apply this if user has actually scrolled (scrollTop > 0)
+      // to prevent education from being highlighted on initial mobile load
+      if (scrollTop > 0 && scrollTop + clientHeight >= scrollHeight - 50) {
         setActiveSection(sectionIds[sectionIds.length - 1]);
         return;
       }
@@ -90,31 +92,36 @@ export default function Sidebar() {
           <nav aria-label="Main navigation">
             <ul>
               <li>
-                <a 
-                  href="#about" 
+                <Link 
+                  to="/#about" 
                   className={activeSection === "about" ? "nav-active" : ""}
                 >
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a 
-                  href="#experience"
+                <Link 
+                  to="/#experience"
                   className={activeSection === "experience" ? "nav-active" : ""}
                 >
                   Experience
-                </a>
+                </Link>
               </li>
               <li>
-                <a 
-                  href="#education"
+                <Link 
+                  to="/#education"
                   className={activeSection === "education" ? "nav-active" : ""}
                 >
                   Education
-                </a>
+                </Link>
               </li>
               <li>
-                <Link to="/resume">Resume</Link>
+                <Link 
+                  to="/resume"
+                  className={location.pathname === "/resume" ? "nav-active" : ""}
+                >
+                  Resume
+                </Link>
               </li>
             </ul>
           </nav>

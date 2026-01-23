@@ -2,10 +2,28 @@
 // Main page containing About, Experience, and Education sections
 // Scrollable content area on the right side of split layout
 
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { ExperienceTimeline, EducationTimeline } from "../components/Timeline.tsx";
 import { experienceData, educationData } from "../data/timeline.ts";
 
 export default function Home() {
+  const location = useLocation();
+
+  // Handle scrolling to hash anchors when navigating from other pages
+  useEffect(() => {
+    if (location.hash) {
+      const elementId = location.hash.slice(1); // Remove the '#'
+      const element = document.getElementById(elementId);
+      if (element) {
+        // Small delay to ensure DOM is ready after navigation
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }
+  }, [location]);
+
   return (
     <main className="main-content">
       {/* About section */}
