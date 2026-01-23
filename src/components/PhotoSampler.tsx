@@ -29,7 +29,7 @@ export default function PhotoSampler() {
         onClick={handleClick}
       />
       <div className="photo-hint">
-        hint: tap pic for good memories sampler
+        tap pic for good memories sampler
       </div>
     </div>
   );

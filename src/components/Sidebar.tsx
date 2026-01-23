@@ -9,7 +9,7 @@ import PhotoSampler from "./PhotoSampler.tsx";
 export default function Sidebar() {
   return (
     <aside className="sidebar">
-      <div>
+      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', flexGrow: 1 }}>
         {/* Typing animation header */}
         <header>
           <h1>
@@ -17,26 +17,29 @@ export default function Sidebar() {
           </h1>
         </header>
 
-        {/* Interactive photo sampler */}
-        <PhotoSampler />
+        {/* Photo and nav side-by-side */}
+        <div style={{ display: 'flex', gap: '2rem' }}>
+          {/* Interactive photo sampler */}
+          <PhotoSampler />
 
-        {/* Navigation links to sections */}
-        <nav aria-label="Main navigation">
-          <ul>
-            <li>
-              <a href="#about">About</a>
-            </li>
-            <li>
-              <a href="#experience">Experience</a>
-            </li>
-            <li>
-              <a href="#education">Education</a>
-            </li>
-            <li>
-              <Link to="/resume">Resume</Link>
-            </li>
-          </ul>
-        </nav>
+          {/* Navigation links to sections */}
+          <nav aria-label="Main navigation">
+            <ul>
+              <li>
+                <a href="#about">About</a>
+              </li>
+              <li>
+                <a href="#experience">Experience</a>
+              </li>
+              <li>
+                <a href="#education">Education</a>
+              </li>
+              <li>
+                <Link to="/resume">Resume</Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
 
       {/* Social links at bottom */}
