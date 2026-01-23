@@ -49,6 +49,23 @@ This workflow:
 
 Useful for catching React errors, missing imports, or runtime issues without manual browser testing.
 
+### Linting
+
+```bash
+# Install dependencies (first time only)
+npm install
+
+# Run all linters (TypeScript/React + CSS)
+npm run lint
+
+# Auto-fix issues where possible
+npm run lint:fix
+```
+
+Individual linters:
+- `npm run lint:js` - ESLint for TypeScript/React
+- `npm run lint:css` - Stylelint for CSS
+
 ### Project Structure
 
 ```
@@ -114,5 +131,6 @@ This will:
 - **Framework**: React 18
 - **Routing**: React Router 6
 - **Styling**: Vanilla CSS with custom properties
+- **Linting**: ESLint + Stylelint
 - **Deployment**: GitHub Pages (gh-pages branch)
 
