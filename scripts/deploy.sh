@@ -22,7 +22,7 @@ sed -i '' 's|href="src/styles/global.css"|href="global.css"|' "$TEMP_DIR/index.h
 cp bundle.js "$TEMP_DIR/"
 cp src/styles/global.css "$TEMP_DIR/global.css"
 cp -r images "$TEMP_DIR/"
-cp favicon.ico "$TEMP_DIR/" 2>/dev/null || echo "No favicon found, skipping..."
+cp favicon.svg "$TEMP_DIR/"
 
 # Create 404.html for client-side routing fallback
 cp "$TEMP_DIR/index.html" "$TEMP_DIR/404.html"

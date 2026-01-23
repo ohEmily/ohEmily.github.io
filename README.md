@@ -39,7 +39,7 @@ For rapid debugging of React runtime errors without opening a browser:
 deno task dev > /tmp/deno-dev.log 2>&1 & echo $!
 
 # Run headless browser simulation to capture console errors
-node repro.js
+deno task repro
 ```
 
 This workflow:
@@ -71,14 +71,21 @@ Individual linters:
 ```
 ohEmily.github.io/
 ├── src/
-│   ├── components/     # React components (Sidebar, Timeline, etc.)
+│   ├── main.tsx        # React entry point
+│   ├── App.tsx         # Main app component with routing
+│   ├── components/     # React components (Sidebar, Timeline, PhotoSampler, etc.)
 │   ├── pages/          # Page components (Home, Resume)
 │   ├── data/           # Timeline data for experience/education
 │   └── styles/         # Global CSS with terminal theme
-├── images/             # Portrait photos
+├── scripts/
+│   ├── build.js        # esbuild production bundler
+│   ├── deploy.sh       # Deployment script
+│   ├── dev-server.ts   # Deno development server
+│   └── repro.js        # Headless browser testing
+├── images/             # Photos and icons
 ├── index.html          # HTML entry point
 ├── deno.json           # Deno configuration and tasks
-└── deploy.sh           # Deployment script
+└── package.json        # npm dependencies (linting, esbuild)
 ```
 
 ## Deployment
@@ -86,7 +93,7 @@ ohEmily.github.io/
 ### Build Production Bundle
 
 ```bash
-# Create optimized bundle.js
+# Create optimized bundle.js using esbuild
 deno task build
 ```
 
@@ -98,10 +105,11 @@ deno task deploy
 ```
 
 This will:
-1. Build the production bundle
-2. Copy necessary files (index.html, bundle.js, images)
-3. Push to `gh-pages` branch
-4. Your site will be live at https://ohemily.github.io
+1. Build the production bundle with esbuild
+2. Copy necessary files (index.html, bundle.js, global.css, images, favicons)
+3. Create a 404.html for client-side routing fallback
+4. Push to `gh-pages` branch
+5. Your site will be live at https://ohemily.github.io
 
 **Note:** First-time config in GitHub Pages:
 1. Go to repository Settings → Pages
@@ -127,9 +135,10 @@ This will:
 
 ## Tech Stack
 
-- **Runtime**: Deno 2.x
+- **Runtime**: Deno 2.x (dev server), Node.js (build/linting)
 - **Framework**: React 18
 - **Routing**: React Router 6
+- **Bundler**: esbuild
 - **Styling**: Vanilla CSS with custom properties
 - **Linting**: ESLint + Stylelint
 - **Deployment**: GitHub Pages (gh-pages branch)
