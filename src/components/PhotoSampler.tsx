@@ -24,7 +24,7 @@ export default function PhotoSampler() {
   return (
     <div className="photo-sampler">
       <img
-        src={`images/${images[imageIndex]}`}
+        src={`/images/${images[imageIndex]}`}
         alt="Emily's photo"
         onClick={handleClick}
       />
