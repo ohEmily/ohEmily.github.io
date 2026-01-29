@@ -11,6 +11,7 @@ const sectionIds = ["about", "experience", "education"];
 
 export default function Sidebar() {
   const [activeSection, setActiveSection] = useState("about");
+  const [showQr, setShowQr] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -86,7 +87,7 @@ export default function Sidebar() {
         {/* Photo and nav side-by-side */}
         <div className="photo-nav-container">
           {/* Interactive photo sampler */}
-          <PhotoSampler />
+          <PhotoSampler showQr={showQr} />
 
           {/* Navigation links to sections */}
           <nav aria-label="Main navigation">
@@ -135,6 +136,7 @@ export default function Sidebar() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
+          className="social-link"
         >
           [LI]
         </a>
@@ -143,9 +145,19 @@ export default function Sidebar() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
+          className="social-link"
         >
           [GH]
         </a>
+        <button
+          type="button"
+          className={`social-link ${showQr ? "social-active" : ""}`}
+          onClick={() => setShowQr((prev) => !prev)}
+          aria-label="Toggle QR code"
+          aria-pressed={showQr}
+        >
+          [QR]
+        </button>
       </div>
     </aside>
   );

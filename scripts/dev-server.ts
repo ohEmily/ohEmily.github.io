@@ -18,6 +18,7 @@ const importMap = {
   "react-router-dom": `https://esm.sh/react-router-dom@6.22.0?deps=${reactVersion}`,
   "react/jsx-runtime": `https://esm.sh/react@18.3.1/jsx-runtime`,
   "react/jsx-dev-runtime": `https://esm.sh/react@18.3.1/jsx-dev-runtime`,
+  "qr-code-styling": "https://esm.sh/qr-code-styling@1.9.2",
 };
 
 console.log(`🚀 Dev server running at http://localhost:${PORT}`);
