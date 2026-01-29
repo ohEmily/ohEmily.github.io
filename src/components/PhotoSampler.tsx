@@ -30,7 +30,7 @@ export default function PhotoSampler({ showQr = false }: PhotoSamplerProps) {
     <div className="photo-sampler">
       <div className="photo-frame">
         <img
-          src={`/images/${images[imageIndex]}`}
+          src={`images/${images[imageIndex]}`}
           alt="Emily's photo"
           onClick={handleClick}
         />

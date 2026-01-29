@@ -59,6 +59,7 @@
         "npm:eslint@^9.18.0",
         "npm:globals@^15.14.0",
         "npm:puppeteer@^24.36.0",
+        "npm:qr-code-styling@^1.9.2",
         "npm:react-dom@^18.3.1",
         "npm:react-router-dom@^6.22.0",
         "npm:react@^18.3.1",

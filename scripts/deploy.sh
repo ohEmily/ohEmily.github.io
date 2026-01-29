@@ -24,6 +24,11 @@ cp src/styles/global.css "$TEMP_DIR/global.css"
 cp -r images "$TEMP_DIR/"
 cp favicon.svg "$TEMP_DIR/"
 
+# Preserve custom domain configuration
+if [ -f CNAME ]; then
+  cp CNAME "$TEMP_DIR/"
+fi
+
 # Create 404.html for client-side routing fallback
 cp "$TEMP_DIR/index.html" "$TEMP_DIR/404.html"
 
