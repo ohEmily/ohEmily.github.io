@@ -93,7 +93,7 @@ export const educationData: EducationEntry[] = [
         dateRange: "2012 - 2016",
         title: "Bachelor of Arts (with honors), Computer Science",
         description:
-          "Andrew P. Kosoresow Memorial Award for Excellence in Teaching and Service (2016). Served as head teaching assistant or teaching assistant for Operating Systems (spring 2016), Advanced Programming (spring 2015 and 2016), and Fundamentals of Computer Systems (summer 2015)",
+          "Andrew P. Kosoresow Memorial Award for Excellence in Teaching and Service (2016). Served as head teaching assistant or teaching assistant for Operating Systems (spring 2016), Advanced Programming (spring 2015 and 2016), and Fundamentals of Computer Systems (summer 2015).",
       },
     ],
   },
