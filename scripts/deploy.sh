@@ -12,15 +12,20 @@ echo "📦 Preparing deployment files..."
 # Create temporary directory for gh-pages content
 TEMP_DIR=$(mktemp -d)
 
-# Create production index.html with bundle.js instead of src/main.tsx
-sed 's|<script type="module" src="src/main.tsx"></script>|<script type="module" src="bundle.js"></script>|' index.html > "$TEMP_DIR/index.html"
+# Cache-busting version (timestamp so it always changes)
+BUILD_VERSION=$(date +%Y%m%d%H%M%S)
+JS_BUNDLE="bundle.$BUILD_VERSION.js"
+CSS_BUNDLE="global.$BUILD_VERSION.css"
+
+# Create production index.html with hashed assets instead of src/main.tsx
+sed "s|<script type=\"module\" src=\"src/main.tsx\"></script>|<script type=\"module\" src=\"$JS_BUNDLE\"></script>|" index.html > "$TEMP_DIR/index.html"
 
 # Also update CSS path to be relative
-sed -i '' 's|href="src/styles/global.css"|href="global.css"|' "$TEMP_DIR/index.html"
+sed -i '' "s|href=\"src/styles/global.css\"|href=\"$CSS_BUNDLE\"|" "$TEMP_DIR/index.html"
 
-# Copy bundle and assets
-cp bundle.js "$TEMP_DIR/"
-cp src/styles/global.css "$TEMP_DIR/global.css"
+# Copy bundle and assets with hashed names
+cp bundle.js "$TEMP_DIR/$JS_BUNDLE"
+cp src/styles/global.css "$TEMP_DIR/$CSS_BUNDLE"
 cp -r images "$TEMP_DIR/"
 cp favicon.svg "$TEMP_DIR/"
 
@@ -36,9 +41,6 @@ cp "$TEMP_DIR/index.html" "$TEMP_DIR/404.html"
 touch "$TEMP_DIR/.nojekyll"
 
 echo "🚀 Deploying to gh-pages branch..."
-# Get current commit hash for reference
-COMMIT_HASH=$(git rev-parse --short HEAD)
-
 # Navigate to temp directory
 cd "$TEMP_DIR"
 
