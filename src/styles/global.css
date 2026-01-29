@@ -225,6 +225,10 @@ section h2 {
   height: 100%;
 }
 
+.photo-qr-code svg > rect:first-of-type {
+  fill: transparent;
+}
+
 .photo-hint {
   margin-top: 0.5rem;
   font-size: clamp(0.75rem, 2.5vw, 0.875rem);

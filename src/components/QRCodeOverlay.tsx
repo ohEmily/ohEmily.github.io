@@ -20,6 +20,7 @@ export default function QRCodeOverlay({ data, size, className }: QRCodeOverlayPr
       height: size,
       type: "svg",
       data,
+      margin: 12,
       dotsOptions: {
         type: "rounded",
         color: "#000000",
@@ -33,7 +34,7 @@ export default function QRCodeOverlay({ data, size, className }: QRCodeOverlayPr
         color: "#000000",
       },
       backgroundOptions: {
-        color: "transparent",
+        color: "rgba(255, 255, 255, 0)",
       },
     });
 
