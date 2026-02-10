@@ -5,7 +5,9 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { ExperienceTimeline, EducationTimeline } from "../components/Timeline.tsx";
+import { ProjectList } from "../components/ProjectList.tsx";
 import { experienceData, educationData } from "../data/timeline.ts";
+import { projectCategories } from "../data/projects.ts";
 
 export default function Home() {
   const location = useLocation();
@@ -53,6 +55,12 @@ export default function Home() {
       <section id="education">
         <h2>Education</h2>
         <EducationTimeline entries={educationData} />
+      </section>
+
+      {/* Projects section */}
+      <section id="projects">
+        <h2>Projects</h2>
+        <ProjectList categories={projectCategories} />
       </section>
     </main>
   );

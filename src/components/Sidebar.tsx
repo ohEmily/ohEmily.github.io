@@ -7,7 +7,7 @@ import { Link, useLocation } from "react-router-dom";
 import TypingAnimation from "./TypingAnimation.tsx";
 import PhotoSampler from "./PhotoSampler.tsx";
 
-const sectionIds = ["about", "experience", "education"];
+const sectionIds = ["about", "experience", "education", "projects"];
 
 export default function Sidebar() {
   const [activeSection, setActiveSection] = useState("about");
@@ -114,6 +114,14 @@ export default function Sidebar() {
                   className={activeSection === "education" ? "nav-active" : ""}
                 >
                   Education
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/#projects"
+                  className={activeSection === "projects" ? "nav-active" : ""}
+                >
+                  Projects
                 </Link>
               </li>
               <li>

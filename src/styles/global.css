@@ -383,6 +383,14 @@ nav li {
   color: var(--text-muted);
 }
 
+/* Project technology byline */
+.project-tech-byline {
+  font-size: 0.9rem;
+  color: var(--accent-yellow);
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
 /* Resume iframe */
 .resume-container {
   width: 100%;
