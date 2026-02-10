@@ -151,8 +151,9 @@ section:nth-child(even) {
 section h2 {
   margin-bottom: 1.5rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 1.25rem;
+  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+  color: var(--text-muted);
 }
 
 /* Typing animation */
@@ -383,12 +384,17 @@ nav li {
   color: var(--text-muted);
 }
 
-/* Project technology byline */
+/* Project styles */
+.project-category {
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
 .project-tech-byline {
-  font-size: 0.9rem;
-  color: var(--accent-yellow);
-  margin-top: 0.25rem;
-  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
 }
 
 /* Resume iframe */

@@ -15,7 +15,7 @@ export interface ProjectCategory {
 
 export const projectCategories: ProjectCategory[] = [
   {
-    category: "Full Stack Web Apps",
+    category: "Full Stack Web App",
     projects: [
       {
         title: "Should I Walk?",

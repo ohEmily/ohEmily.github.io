@@ -8,29 +8,23 @@ interface ProjectListProps {
 }
 
 export function ProjectList({ categories }: ProjectListProps) {
-  return (
-    <div className="timeline">
-      {categories.map((category, catIndex) => (
-        <article key={catIndex} className="timeline-entry">
-          {/* Category header */}
-          <div className="timeline-meta">
-            <span className="timeline-location">{category.category}</span>
-          </div>
+  // Flatten categories into a list of projects with their category
+  const projects = categories.flatMap((cat) =>
+    cat.projects.map((project) => ({ ...project, category: cat.category }))
+  );
 
-          {/* Projects in this category */}
-          <div className="timeline-roles">
-            {category.projects.map((project, projIndex) => (
-              <div key={projIndex} className="timeline-role">
-                <h3 className="timeline-heading">
-                  <a href={project.link} target="_blank" rel="noopener noreferrer">
-                    {project.title}
-                  </a>
-                </h3>
-                <p className="project-tech-byline">{project.technologies}</p>
-                <p className="timeline-description">{project.description}</p>
-              </div>
-            ))}
-          </div>
+  return (
+    <div className="project-list">
+      {projects.map((project, index) => (
+        <article key={index} className="project-entry">
+          <h3 className="timeline-heading">
+            <a href={project.link} target="_blank" rel="noopener noreferrer">
+              {project.title}
+            </a>
+            <span className="project-category"> · {project.category}</span>
+          </h3>
+          <p className="timeline-description">{project.description}</p>
+          <p className="project-tech-byline">{project.technologies}</p>
         </article>
       ))}
     </div>
