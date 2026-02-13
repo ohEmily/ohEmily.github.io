@@ -391,6 +391,32 @@ nav li {
   color: var(--text-muted);
 }
 
+.project-heading-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.project-github-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.project-github-link:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.project-github-link svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  fill: currentColor;
+}
+
 .project-tech-byline {
   font-size: 0.8rem;
   color: var(--text-muted);

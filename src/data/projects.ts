@@ -4,6 +4,7 @@
 export interface ProjectEntry {
   title: string;
   link: string;
+  githubLink?: string;
   description: string;
   technologies: string;
 }
@@ -20,6 +21,7 @@ export const projectCategories: ProjectCategory[] = [
       {
         title: "Should I Walk?",
         link: "https://shouldiwalk.emilypakulski.com",
+        githubLink: "https://github.com/ohEmily/shouldiwalk",
         description: "Web app built to easily look up Citi Bike station capacity. Built after I biked to Bedford Av subway but couldn't dock my bike one too many times. Supports toggling between exact address and subway station names for your location and destination.",
         technologies: "React SPA with a Django backend, Airflow for data ingestion, and Postgres database. Deployed on Oracle Cloud Infrastructure to use their generous free tier.",
       },
