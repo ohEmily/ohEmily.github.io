@@ -17,7 +17,28 @@ export interface ProjectCategory {
   projects: ProjectEntry[];
 }
 
-export const projectCategories: ProjectCategory[] = [
+function validateProjectCategories(categories: ProjectCategory[]): ProjectCategory[] {
+  for (const category of categories) {
+    for (const project of category.projects) {
+      const rawProject = project as Record<string, unknown>;
+      if ("githubLink" in rawProject) {
+        throw new Error(
+          `[projects] "${project.title}" uses deprecated githubLink. Use github: { url, isPrivate } instead.`
+        );
+      }
+
+      if (project.github && typeof project.github.isPrivate !== "boolean") {
+        throw new Error(
+          `[projects] "${project.title}" is missing required github.isPrivate boolean.`
+        );
+      }
+    }
+  }
+
+  return categories;
+}
+
+export const projectCategories: ProjectCategory[] = validateProjectCategories([
   {
     category: "Full Stack Web App",
     projects: [
@@ -33,4 +54,4 @@ export const projectCategories: ProjectCategory[] = [
       },
     ],
   },
-];
+]);
