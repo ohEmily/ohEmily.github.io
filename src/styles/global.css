@@ -397,10 +397,22 @@ nav li {
   gap: 0.4rem;
 }
 
+.project-category-meta {
+  display: inline;
+}
+
+.project-meta-separator {
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 1rem;
+}
+
 .project-github-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  top: 0.1em;
   color: var(--text-muted);
   opacity: 0.85;
   transition: opacity 0.2s ease, transform 0.2s ease;
@@ -415,6 +427,74 @@ nav li {
   width: 0.95rem;
   height: 0.95rem;
   fill: currentColor;
+}
+
+.project-github-private {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  top: 0.1em;
+  color: var(--text-muted);
+  opacity: 0.75;
+  cursor: not-allowed;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.project-github-private::after {
+  content: "×";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.62rem;
+  height: 0.62rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgb(248 113 113 / 72%);
+  background: rgb(239 68 68 / 26%);
+  color: rgb(254 226 226);
+  font-size: 0.52rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.project-github-private svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  fill: currentColor;
+}
+
+.project-github-private:hover {
+  opacity: 1;
+  color: var(--text-secondary);
+}
+
+.project-github-private-tag {
+  position: absolute;
+  bottom: calc(100% + 0.3rem);
+  left: 50%;
+  transform: translate(-50%, 2px);
+  padding: 0.15rem 0.4rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 3px;
+  background: var(--bg-alternate);
+  color: var(--text-muted);
+  font-size: 0.58rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.project-github-private:hover .project-github-private-tag {
+  opacity: 1;
+  transform: translate(-50%, 0);
 }
 
 .project-tech-byline {
