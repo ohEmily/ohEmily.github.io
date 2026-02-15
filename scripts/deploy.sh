@@ -21,6 +21,7 @@ CSS_BUNDLE="global.$BUILD_VERSION.css"
 sed "s|<script type=\"module\" src=\"src/main.tsx\"></script>|<script type=\"module\" src=\"$JS_BUNDLE\"></script>|" index.html > "$TEMP_DIR/index.html"
 
 # Also update CSS path to be relative
+# BSD/macOS sed syntax: `-i ''` edits in place with an empty backup suffix.
 sed -i '' "s|href=\"src/styles/global.css\"|href=\"$CSS_BUNDLE\"|" "$TEMP_DIR/index.html"
 
 # Copy bundle and assets with hashed names

@@ -5,7 +5,7 @@
 
 - Terminal-inspired design with accessible colors (WCAG AA) 
 - Responsive split-screen layout (desktop) / single-column (mobile)
-- Built with Deno's native JSX/TSX support (no build tools needed for dev)
+- Built with Deno + React, with on-the-fly TSX transpilation via esbuild in the dev server
 
 ## Development
 
@@ -84,9 +84,11 @@ deno task build
 deno task deploy
 ```
 
+Note: The deploy script currently assumes macOS/BSD `sed` syntax.
+
 This will:
 1. Build the production bundle with esbuild
-2. Copy necessary files (index.html, bundle.js, global.css, images, favicons)
+2. Copy deployment files (hashed `bundle.<timestamp>.js`, hashed `global.<timestamp>.css`, `images/`, `favicon.svg`, and optional `CNAME`)
 3. Create a 404.html for client-side routing fallback
 4. Push to `gh-pages` branch
 5. Your site will be live at https://ohemily.github.io
