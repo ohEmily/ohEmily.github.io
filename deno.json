@@ -12,7 +12,6 @@
   "tasks": {
     "dev": "deno run --allow-net --allow-read --allow-write --allow-env --allow-run --watch scripts/dev-server.ts",
     "build": "node scripts/build.js",
-    "deploy": "bash scripts/deploy.sh",
-    "repro": "node scripts/repro.js"
+    "deploy": "bash scripts/deploy.sh"
   }
 }

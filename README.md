@@ -30,25 +30,6 @@ deno task dev
 
 The dev server watches for file changes and auto-reloads.
 
-### Fast Iteration from Command Line
-
-For rapid debugging of React runtime errors without opening a browser:
-
-```bash
-# Start dev server in background and log to file
-deno task dev > /tmp/deno-dev.log 2>&1 & echo $!
-
-# Run headless browser simulation to capture console errors
-deno task repro
-```
-
-This workflow:
-1. Runs the dev server in the background, redirecting output to `/tmp/deno-dev.log`
-2. Prints the background process PID (use `kill <PID>` to stop when done)
-3. Uses Puppeteer to load the page headlessly and output all console logs/errors
-
-Useful for catching React errors, missing imports, or runtime issues without manual browser testing.
-
 ### Linting
 
 ```bash
@@ -80,8 +61,7 @@ ohEmily.github.io/
 ├── scripts/
 │   ├── build.js        # esbuild production bundler
 │   ├── deploy.sh       # Deployment script
-│   ├── dev-server.ts   # Deno development server
-│   └── repro.js        # Headless browser testing
+│   └── dev-server.ts   # Deno development server
 ├── images/             # Photos and icons
 ├── index.html          # HTML entry point
 ├── deno.json           # Deno configuration and tasks
@@ -142,4 +122,3 @@ This will:
 - **Styling**: Vanilla CSS with custom properties
 - **Linting**: ESLint + Stylelint
 - **Deployment**: GitHub Pages (gh-pages branch)
-
