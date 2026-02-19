@@ -20,7 +20,9 @@ export default function Home() {
       if (element) {
         // Small delay to ensure DOM is ready after navigation
         setTimeout(() => {
-          element.scrollIntoView({ behavior: "smooth" });
+          // Center the section to avoid overshooting (e.g. Education landing on Projects).
+          // block: "center" ensures the target is in the middle of the viewport.
+          element.scrollIntoView({ behavior: "smooth", block: "center" });
         }, 100);
       }
     }

@@ -27,7 +27,8 @@ export default function Sidebar() {
       const scrollTop = scrollContainer ? scrollContainer.scrollTop : window.scrollY;
       const scrollHeight = scrollContainer ? scrollContainer.scrollHeight : document.body.scrollHeight;
       const clientHeight = scrollContainer ? scrollContainer.clientHeight : window.innerHeight;
-      const offset = 150;
+      // Use viewport center as the activation point so it matches scrollIntoView(block: "center")
+      const activationPoint = scrollTop + clientHeight / 2;
 
       // Check if scrolled to bottom - highlight last section
       // Only apply this if user has actually scrolled (scrollTop > 0)
@@ -46,7 +47,7 @@ export default function Sidebar() {
           const containerTop = containerRect?.top ?? 0;
           const relativeTop = rect.top - containerTop + scrollTop;
           
-          if (scrollTop + offset >= relativeTop && scrollTop + offset < relativeTop + element.offsetHeight) {
+          if (activationPoint >= relativeTop && activationPoint < relativeTop + element.offsetHeight) {
             setActiveSection(id);
             break;
           }
