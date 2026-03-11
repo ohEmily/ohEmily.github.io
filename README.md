@@ -103,7 +103,7 @@ This will:
 
 ### Updating
 
-- **Timeline data**: Edit `src/data/timeline.ts`
+- **Timeline data**: Edit `src/data/timeline.tsx`
 - **About section**: Edit `src/pages/Home.tsx`
 - **Resume link**: Edit `src/pages/Resume.tsx`
 - **Social links**: Edit `src/components/Sidebar.tsx`

@@ -365,6 +365,10 @@ nav li {
   line-height: 1.6;
 }
 
+.timeline-description p {
+  margin-top: 0.75rem;
+}
+
 /* Grouped roles within an employer */
 .timeline-roles {
   margin-top: 0.5rem;

@@ -2,7 +2,7 @@
 // Container components for experience and education timelines
 
 import { EmployerTimelineEntry, EducationTimelineEntry } from "./TimelineEntry.tsx";
-import type { EmployerEntry, EducationEntry } from "../data/timeline.ts";
+import type { EmployerEntry, EducationEntry } from "../data/timeline.tsx";
 
 interface ExperienceTimelineProps {
   entries: EmployerEntry[];

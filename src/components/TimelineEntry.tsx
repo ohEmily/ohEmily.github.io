@@ -1,7 +1,7 @@
 // TimelineEntry.tsx
 // Timeline entry components for employer and education entries
 
-import type { EmployerEntry, EducationEntry } from "../data/timeline.ts";
+import type { EmployerEntry, EducationEntry } from "../data/timeline.tsx";
 
 interface EmployerEntryProps {
   entry: EmployerEntry;
@@ -25,7 +25,7 @@ export function EmployerTimelineEntry({ entry }: EmployerEntryProps) {
               {role.title}
               <span className="timeline-role-dates"> · {role.dateRange}</span>
             </h3>
-            <p className="timeline-description">{role.description}</p>
+            <div className="timeline-description">{role.description}</div>
           </div>
         ))}
       </div>
@@ -55,7 +55,7 @@ export function EducationTimelineEntry({ entry }: EducationEntryProps) {
               {degree.title}
               <span className="timeline-role-dates"> · {degree.dateRange}</span>
             </h3>
-            <p className="timeline-description">{degree.description}</p>
+            <div className="timeline-description">{degree.description}</div>
           </div>
         ))}
       </div>

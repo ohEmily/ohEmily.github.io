@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { ExperienceTimeline, EducationTimeline } from "../components/Timeline.tsx";
 import { ProjectList } from "../components/ProjectList.tsx";
-import { experienceData, educationData } from "../data/timeline.ts";
+import { experienceData, educationData } from "../data/timeline.tsx";
 import { projectCategories } from "../data/projects.ts";
 
 export default function Home() {

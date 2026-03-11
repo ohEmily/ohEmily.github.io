@@ -1,10 +1,12 @@
-// timeline.ts
+// timeline.tsx
 // Data structure for work experience and education timelines
+
+import type { ReactNode } from "react";
 
 export interface Role {
   dateRange: string;
   title: string;
-  description: string;
+  description: ReactNode;
 }
 
 export interface EmployerEntry {
@@ -16,7 +18,7 @@ export interface EmployerEntry {
 export interface Degree {
   dateRange: string;
   title: string;
-  description: string;
+  description: ReactNode;
 }
 
 export interface EducationEntry {
@@ -28,11 +30,45 @@ export interface EducationEntry {
 // Work experience grouped by employer (most recent first)
 export const experienceData: EmployerEntry[] = [
   {
+    company: "Treeswift",
+    location: "New York, NY",
+    roles: [
+      {
+        dateRange: "Feb'26 - now",
+        title: "Head of Software Engineering",
+        description: (
+          <>
+            I lead software engineering at Treeswift, a 28-person Series A
+            startup applying physical AI to vegetation management, with
+            applications to forest fire prevention. Our 9-person software team
+            spans web, data pipeline, and machine learning, with a stack that
+            includes (among other things) an Airflow 3 pipeline on Astronomer
+            crunching through massive data uploads on a Kubernetes cluster with
+            specialized worker nodes, alongside a React web app with a Python
+            API.
+            <p>
+              <strong>
+                We're actively <a
+                  href="https://jobs.ashbyhq.com/treeswift"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  hiring
+                </a>
+                !
+              </strong>
+            </p>
+          </>
+        ),
+      },
+    ],
+  },
+  {
     company: "Viam",
     location: "New York, NY",
     roles: [
       {
-        dateRange: "Feb'25 - now",
+        dateRange: "Feb'25 - Jan'26",
         title: "Director of Engineering, Core Data Services Org",
         description:
           "I lead backend-leaning teams building reliable data infrastructure for robotics and connected devices, from ingestion to long-term storage. I stay hands-on by writing code for cross-team projects that are hard to staff, unblocking migrations, and building internal tooling that boosts engineering productivity across the org.",
