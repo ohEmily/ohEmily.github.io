@@ -22,7 +22,7 @@ export default function Home() {
         setTimeout(() => {
           // Center the section to avoid overshooting (e.g. Education landing on Projects).
           // block: "center" ensures the target is in the middle of the viewport.
-          element.scrollIntoView({ behavior: "smooth", block: "center" });
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
         }, 100);
       }
     }

@@ -22,13 +22,20 @@ export default function Sidebar() {
     }
 
     const handleScroll = () => {
-      // Try to get the scrollable container (.main-content) or fall back to window
+      // On desktop (≥1280px), .main-content has overflow-y: auto and is the scroll container.
+      // On mobile, the whole page scrolls via window, so we must use window values instead.
       const scrollContainer = document.querySelector(".main-content");
-      const scrollTop = scrollContainer ? scrollContainer.scrollTop : window.scrollY;
-      const scrollHeight = scrollContainer ? scrollContainer.scrollHeight : document.body.scrollHeight;
-      const clientHeight = scrollContainer ? scrollContainer.clientHeight : window.innerHeight;
-      // Use viewport center as the activation point so it matches scrollIntoView(block: "center")
-      const activationPoint = scrollTop + clientHeight / 2;
+      const isContainerScrollable =
+        scrollContainer != null &&
+        getComputedStyle(scrollContainer).overflowY === "auto";
+
+      const scrollTop = isContainerScrollable ? scrollContainer.scrollTop : window.scrollY;
+      const scrollHeight = isContainerScrollable ? scrollContainer.scrollHeight : document.body.scrollHeight;
+      const clientHeight = isContainerScrollable ? scrollContainer.clientHeight : window.innerHeight;
+      // Use a fixed offset from the top as the activation point, matching scrollIntoView(block: "start").
+      // Using viewport center caused tall sections (Experience) to scroll to their middle instead of top.
+      // Using a small fixed offset keeps short sections (Education) from overshooting into the next section.
+      const activationPoint = scrollTop + 100;
 
       // Check if scrolled to bottom - highlight last section
       // Only apply this if user has actually scrolled (scrollTop > 0)
@@ -43,7 +50,7 @@ export default function Sidebar() {
         if (element) {
           // Get position relative to the scroll container
           const rect = element.getBoundingClientRect();
-          const containerRect = scrollContainer?.getBoundingClientRect();
+          const containerRect = isContainerScrollable ? scrollContainer.getBoundingClientRect() : null;
           const containerTop = containerRect?.top ?? 0;
           const relativeTop = rect.top - containerTop + scrollTop;
           
