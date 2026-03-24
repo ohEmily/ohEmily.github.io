@@ -68,10 +68,10 @@ export const experienceData: EmployerEntry[] = [
     location: "New York, NY",
     roles: [
       {
-        dateRange: "Feb'25 - Jan'26",
+        dateRange: "Feb'25 - Feb'26",
         title: "Director of Engineering, Core Data Services Org",
         description:
-          "I lead backend-leaning teams building reliable data infrastructure for robotics and connected devices, from ingestion to long-term storage. I stay hands-on by writing code for cross-team projects that are hard to staff, unblocking migrations, and building internal tooling that boosts engineering productivity across the org.",
+          "I led backend-leaning teams building reliable data infrastructure for robotics and connected devices, from ingestion to long-term storage. I stayed hands-on by writing code for cross-team projects that were hard to staff, unblocking migrations, and building internal tooling that boosted engineering productivity across the org.",
       },
       {
         dateRange: "Jul'23 - Jan'25",
