@@ -12,17 +12,23 @@ const layouts: SectionLayout[] = [
   { id: "projects", top: 2000, height: 1000 },
 ];
 
-const CLIENT_HEIGHT = 800;
-const SCROLL_HEIGHT = 3000;
-const OFFSET = CLIENT_HEIGHT * ACTIVATION_RATIO; // activation point relative to scrollTop
+const DESKTOP_HEIGHT = 800;
+const DESKTOP_SCROLL = 3000;
 
-function scroll(scrollTop: number, clientHeight = CLIENT_HEIGHT, scrollHeight = SCROLL_HEIGHT): ScrollState {
+const MOBILE_HEIGHT = 667;  // iPhone SE viewport
+const MOBILE_SCROLL = 3000;
+
+function scroll(scrollTop: number, clientHeight = DESKTOP_HEIGHT, scrollHeight = DESKTOP_SCROLL): ScrollState {
   return { scrollTop, scrollHeight, clientHeight };
 }
 
 /** Return the minimum scrollTop (> 0) needed for the activation point to reach `target`. */
-function scrollTopFor(target: number): number {
-  return target - OFFSET + 1;
+function scrollTopFor(target: number, clientHeight = DESKTOP_HEIGHT): number {
+  return target - clientHeight * ACTIVATION_RATIO + 1;
+}
+
+function mobileScroll(scrollTop: number): ScrollState {
+  return scroll(scrollTop, MOBILE_HEIGHT, MOBILE_SCROLL);
 }
 
 describe("getActiveSection", () => {
@@ -55,11 +61,11 @@ describe("getActiveSection", () => {
 
   it("highlights last section when scrolled to the very bottom", () => {
     // scrollTop + clientHeight >= scrollHeight - 50
-    expect(getActiveSection(sectionIds, layouts, scroll(SCROLL_HEIGHT - CLIENT_HEIGHT))).toBe("projects");
+    expect(getActiveSection(sectionIds, layouts, scroll(DESKTOP_SCROLL - DESKTOP_HEIGHT))).toBe("projects");
   });
 
   it("highlights last section at exact bottom", () => {
-    expect(getActiveSection(sectionIds, layouts, scroll(SCROLL_HEIGHT))).toBe("projects");
+    expect(getActiveSection(sectionIds, layouts, scroll(DESKTOP_SCROLL))).toBe("projects");
   });
 
   it("returns null for empty section list", () => {
@@ -74,7 +80,7 @@ describe("getActiveSection", () => {
     ];
     // Place activation point in the gap (300–500)
     const st = scrollTopFor(400); // 400 is inside the gap
-    expect(getActiveSection(["about", "experience"], gapped, scroll(st, CLIENT_HEIGHT, 1000))).toBeNull();
+    expect(getActiveSection(["about", "experience"], gapped, scroll(st, DESKTOP_HEIGHT, 1000))).toBeNull();
   });
 
   // ---- Section boundary transitions ----
@@ -94,5 +100,44 @@ describe("getActiveSection", () => {
     // activation point needs to reach 2000
     const st = scrollTopFor(2000);
     expect(getActiveSection(sectionIds, layouts, scroll(st))).toBe("projects");
+  });
+});
+
+describe("getActiveSection — mobile viewport", () => {
+  it("highlights 'about' at the top of the page", () => {
+    expect(getActiveSection(sectionIds, layouts, mobileScroll(0))).toBe("about");
+  });
+
+  it("highlights 'experience' when scrolled into experience", () => {
+    const st = scrollTopFor(600, MOBILE_HEIGHT);
+    expect(getActiveSection(sectionIds, layouts, mobileScroll(st))).toBe("experience");
+  });
+
+  it("highlights 'education' when scrolled into education", () => {
+    const st = scrollTopFor(1400, MOBILE_HEIGHT);
+    expect(getActiveSection(sectionIds, layouts, mobileScroll(st))).toBe("education");
+  });
+
+  it("highlights 'projects' when scrolled into projects", () => {
+    const st = scrollTopFor(2200, MOBILE_HEIGHT);
+    expect(getActiveSection(sectionIds, layouts, mobileScroll(st))).toBe("projects");
+  });
+
+  it("highlights last section when scrolled to the very bottom", () => {
+    expect(getActiveSection(sectionIds, layouts, mobileScroll(MOBILE_SCROLL - MOBILE_HEIGHT))).toBe("projects");
+  });
+
+  it("transitions from about to experience", () => {
+    expect(getActiveSection(sectionIds, layouts, mobileScroll(1))).toBe("experience");
+  });
+
+  it("transitions from experience to education", () => {
+    const st = scrollTopFor(1200, MOBILE_HEIGHT);
+    expect(getActiveSection(sectionIds, layouts, mobileScroll(st))).toBe("education");
+  });
+
+  it("transitions from education to projects", () => {
+    const st = scrollTopFor(2000, MOBILE_HEIGHT);
+    expect(getActiveSection(sectionIds, layouts, mobileScroll(st))).toBe("projects");
   });
 });
