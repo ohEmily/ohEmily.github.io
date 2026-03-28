@@ -40,13 +40,13 @@ export default function Home() {
           these days, AI tooling gives me the help I need with the occasional
           frontend task.
         </p>
-        <p style={{ marginTop: "1rem" }}>
+        <p>
           As a leader, I’m deeply motivated by the feeling of a team gelling. I
           feel at home in an organization where I see folks helping each other,
           extending psychological safety, and giving each other the benefit of the
           doubt.
         </p>
-        <p style={{ marginTop: "1rem" }}>
+        <p>
           I enjoy tinkering with technology outside of work. You might also
           find me in the gym, biking around the city, reading a novel (or
           non-fiction every once in a while), or exploring new places. My

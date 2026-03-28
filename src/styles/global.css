@@ -536,3 +536,7 @@ nav li {
   white-space: nowrap;
   border-width: 0;
 }
+
+p + p {
+  margin-top: 1rem;
+}
