@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import TypingAnimation from "./TypingAnimation.tsx";
 import PhotoSampler from "./PhotoSampler.tsx";
+import { getActiveSection } from "../scrollspy.ts";
 
 const sectionIds = ["about", "experience", "education", "projects"];
 
@@ -32,34 +33,18 @@ export default function Sidebar() {
       const scrollTop = isContainerScrollable ? scrollContainer.scrollTop : window.scrollY;
       const scrollHeight = isContainerScrollable ? scrollContainer.scrollHeight : document.body.scrollHeight;
       const clientHeight = isContainerScrollable ? scrollContainer.clientHeight : window.innerHeight;
-      // Use a fixed offset from the top as the activation point, matching scrollIntoView(block: "start").
-      // Using viewport center caused tall sections (Experience) to scroll to their middle instead of top.
-      // Using a small fixed offset keeps short sections (Education) from overshooting into the next section.
-      const activationPoint = scrollTop + 100;
 
-      // Check if scrolled to bottom - highlight last section
-      // Only apply this if user has actually scrolled (scrollTop > 0)
-      // to prevent education from being highlighted on initial mobile load
-      if (scrollTop > 0 && scrollTop + clientHeight >= scrollHeight - 50) {
-        setActiveSection(sectionIds[sectionIds.length - 1]);
-        return;
-      }
-
-      for (const id of sectionIds) {
+      const layouts = sectionIds.map((id) => {
         const element = document.getElementById(id);
-        if (element) {
-          // Get position relative to the scroll container
-          const rect = element.getBoundingClientRect();
-          const containerRect = isContainerScrollable ? scrollContainer.getBoundingClientRect() : null;
-          const containerTop = containerRect?.top ?? 0;
-          const relativeTop = rect.top - containerTop + scrollTop;
-          
-          if (activationPoint >= relativeTop && activationPoint < relativeTop + element.offsetHeight) {
-            setActiveSection(id);
-            break;
-          }
-        }
-      }
+        if (!element) return { id, top: 0, height: 0 };
+        const rect = element.getBoundingClientRect();
+        const containerRect = isContainerScrollable ? scrollContainer.getBoundingClientRect() : null;
+        const containerTop = containerRect?.top ?? 0;
+        return { id, top: rect.top - containerTop + scrollTop, height: element.offsetHeight };
+      });
+
+      const active = getActiveSection(sectionIds, layouts, { scrollTop, scrollHeight, clientHeight });
+      if (active) setActiveSection(active);
     };
 
     // Get the scroll container
