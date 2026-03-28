@@ -34,16 +34,24 @@ export default function Home() {
       <section id="about">
         <h2>About</h2>
         <p>
-          I'm a software engineering leader motivated by impactful products and
-          interested in distributed systems problems. I have a preference for
-          backend and infrastructure work, but AI tooling has helped me find
-          the frontend much more approachable!
+          I consider myself a distributed systems-leaning backend software engineer
+          by trade, but I try to think hard about the product and to work across
+          the stack. I have a preference for backend and infrastructure work, but
+          these days, AI tooling gives me the help I need with the occasional
+          frontend task.
         </p>
         <p style={{ marginTop: "1rem" }}>
-          When I'm not tinkering or coding, you can find me in the gym,
-          biking around the city, reading a novel (or non-fiction every once in a
-          while), or exploring new places. My family and friends are spread far
-          and wide, so while I'm based in New York, we may cross paths elsewhere.
+          As a leader, I’m deeply motivated by the feeling of a team gelling. I
+          feel at home in an organization where I see folks helping each other,
+          extending psychological safety, and giving each other the benefit of the
+          doubt.
+        </p>
+        <p style={{ marginTop: "1rem" }}>
+          I enjoy tinkering with technology outside of work. You might also
+          find me in the gym, biking around the city, reading a novel (or
+          non-fiction every once in a while), or exploring new places. My
+          family and friends are spread far and wide, so while I'm based in
+          New York, we may cross paths elsewhere.
         </p>
       </section>
 
