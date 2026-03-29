@@ -2,18 +2,26 @@
 // Left sidebar containing intro, photo, navigation, and social links
 // Sticky on desktop, stacks at top on mobile
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import TypingAnimation from "./TypingAnimation.tsx";
 import PhotoSampler from "./PhotoSampler.tsx";
 import { getActiveSection } from "../scrollspy.ts";
 
 const sectionIds = ["about", "experience", "education", "projects"];
+const NAV_CLICK_COOLDOWN_MS = 800;
 
 export default function Sidebar() {
   const [activeSection, setActiveSection] = useState("about");
   const [showQr, setShowQr] = useState(false);
   const location = useLocation();
+  // After a nav click, ignore scroll events while smooth-scroll settles.
+  const ignoreScrollUntil = useRef(0);
+
+  const handleNavClick = (id: string) => {
+    setActiveSection(id);
+    ignoreScrollUntil.current = Date.now() + NAV_CLICK_COOLDOWN_MS;
+  };
 
   useEffect(() => {
     // Only run on home page
@@ -23,6 +31,7 @@ export default function Sidebar() {
     }
 
     const handleScroll = () => {
+      if (Date.now() < ignoreScrollUntil.current) return;
       // On desktop (≥1280px), .main-content has overflow-y: auto and is the scroll container.
       // On mobile, the whole page scrolls via window, so we must use window values instead.
       const scrollContainer = document.querySelector(".main-content");
@@ -85,38 +94,17 @@ export default function Sidebar() {
           {/* Navigation links to sections */}
           <nav aria-label="Main navigation">
             <ul>
-              <li>
-                <Link 
-                  to="/#about" 
-                  className={activeSection === "about" ? "nav-active" : ""}
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/#experience"
-                  className={activeSection === "experience" ? "nav-active" : ""}
-                >
-                  Experience
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/#education"
-                  className={activeSection === "education" ? "nav-active" : ""}
-                >
-                  Education
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/#projects"
-                  className={activeSection === "projects" ? "nav-active" : ""}
-                >
-                  Projects
-                </Link>
-              </li>
+              {sectionIds.map((id) => (
+                <li key={id}>
+                  <Link
+                    to={`/#${id}`}
+                    className={activeSection === id ? "nav-active" : ""}
+                    onClick={() => handleNavClick(id)}
+                  >
+                    {id.charAt(0).toUpperCase() + id.slice(1)}
+                  </Link>
+                </li>
+              ))}
               <li>
                 <Link 
                   to="/resume"

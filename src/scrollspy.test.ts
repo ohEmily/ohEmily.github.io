@@ -141,3 +141,29 @@ describe("getActiveSection — mobile viewport", () => {
     expect(getActiveSection(sectionIds, layouts, mobileScroll(st))).toBe("projects");
   });
 });
+
+describe("getActiveSection — short last section", () => {
+  // Reproduces the bug where Projects is shorter than the viewport,
+  // so the activation point (viewport center) lands in Education even
+  // when scrolled to the very bottom.
+  const shortLayouts: SectionLayout[] = [
+    { id: "about", top: 0, height: 300 },
+    { id: "experience", top: 300, height: 900 },
+    { id: "education", top: 1200, height: 800 },
+    { id: "projects", top: 2000, height: 200 },
+  ];
+  const shortScrollHeight = 2200;
+
+  it("highlights 'projects' via bottom fallback when scrolled to the bottom", () => {
+    // Max scrollTop = 2200 - 800 = 1400. Activation = 1400 + 400 = 1800.
+    // 1800 is inside education (1200–2000), not projects (2000–2200).
+    // The bottom fallback should catch this.
+    const maxScroll = shortScrollHeight - DESKTOP_HEIGHT;
+    expect(getActiveSection(sectionIds, shortLayouts, scroll(maxScroll, DESKTOP_HEIGHT, shortScrollHeight))).toBe("projects");
+  });
+
+  it("highlights 'education' when activation point is in education and NOT at bottom", () => {
+    // scrollTop = 1000, activation = 1400, inside education. Not at bottom.
+    expect(getActiveSection(sectionIds, shortLayouts, scroll(1000, DESKTOP_HEIGHT, shortScrollHeight))).toBe("education");
+  });
+});

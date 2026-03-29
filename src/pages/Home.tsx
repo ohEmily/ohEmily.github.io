@@ -20,8 +20,9 @@ export default function Home() {
       if (element) {
         // Small delay to ensure DOM is ready after navigation
         setTimeout(() => {
-          // Center the section to avoid overshooting (e.g. Education landing on Projects).
-          // block: "center" ensures the target is in the middle of the viewport.
+          // Scroll the section heading to the top of the viewport.
+          // The nav click cooldown in Sidebar prevents the scroll handler
+          // from overriding the active section during the smooth scroll.
           element.scrollIntoView({ behavior: "smooth", block: "start" });
         }, 100);
       }

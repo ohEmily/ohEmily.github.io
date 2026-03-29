@@ -35,8 +35,13 @@ export function getActiveSection(
     return sectionIds[0];
   }
 
-  // At the very bottom, always highlight the last section.
-  if (scroll.scrollTop + scroll.clientHeight >= scroll.scrollHeight - BOTTOM_THRESHOLD) {
+  const atBottom = scroll.scrollTop + scroll.clientHeight >= scroll.scrollHeight - BOTTOM_THRESHOLD;
+
+  // At the bottom and the last section is visible, highlight it.
+  // The last section may be shorter than the viewport, so the activation
+  // point (viewport center) can land in the previous section even though
+  // the user has scrolled as far as possible.
+  if (atBottom) {
     return sectionIds[sectionIds.length - 1];
   }
 
