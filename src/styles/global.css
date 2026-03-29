@@ -44,7 +44,7 @@ a {
   transition: opacity 0.2s ease;
 }
 
-/* Navigation links (must come before a:hover for specificity) */
+/* Navigation links */
 nav a {
   font-size: clamp(0.75rem, 2.5vw, 0.875rem);
   text-transform: uppercase;
@@ -360,6 +360,10 @@ nav li {
   margin-top: 0.25rem;
 }
 
+p + p {
+  margin-top: 1rem;
+}
+
 .timeline-description {
   margin-top: 0.5rem;
   line-height: 1.6;
@@ -414,7 +418,7 @@ nav li {
 .project-github-link svg {
   width: 0.95rem;
   height: 0.95rem;
-  fill: currentColor;
+  fill: currentcolor;
 }
 
 .project-github-private {
@@ -452,7 +456,7 @@ nav li {
 .project-github-private svg {
   width: 0.95rem;
   height: 0.95rem;
-  fill: currentColor;
+  fill: currentcolor;
 }
 
 .project-github-private:hover {
@@ -535,8 +539,4 @@ nav li {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
-}
-
-p + p {
-  margin-top: 1rem;
 }

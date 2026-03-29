@@ -56,23 +56,20 @@ export default function Sidebar() {
       if (active) setActiveSection(active);
     };
 
-    // Get the scroll container
+    // Get the scroll container and determine which element actually scrolls
     const scrollContainer = document.querySelector(".main-content");
-    
+    const isDesktop =
+      scrollContainer != null &&
+      getComputedStyle(scrollContainer).overflowY === "auto";
+    const scrollTarget = isDesktop ? scrollContainer : window;
+
     // Initial check after a brief delay to ensure DOM is ready
     setTimeout(handleScroll, 100);
 
-    // Listen to both the container and window (for mobile)
-    if (scrollContainer) {
-      scrollContainer.addEventListener("scroll", handleScroll);
-    }
-    window.addEventListener("scroll", handleScroll);
-    
+    scrollTarget.addEventListener("scroll", handleScroll);
+
     return () => {
-      if (scrollContainer) {
-        scrollContainer.removeEventListener("scroll", handleScroll);
-      }
-      window.removeEventListener("scroll", handleScroll);
+      scrollTarget.removeEventListener("scroll", handleScroll);
     };
   }, [location.pathname]);
 

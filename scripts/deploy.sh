@@ -21,8 +21,9 @@ CSS_BUNDLE="global.$BUILD_VERSION.css"
 sed "s|<script type=\"module\" src=\"src/main.tsx\"></script>|<script type=\"module\" src=\"$JS_BUNDLE\"></script>|" index.html > "$TEMP_DIR/index.html"
 
 # Also update CSS path to be relative
-# BSD/macOS sed syntax: `-i ''` edits in place with an empty backup suffix.
-sed -i '' "s|href=\"src/styles/global.css\"|href=\"$CSS_BUNDLE\"|" "$TEMP_DIR/index.html"
+# Use portable sed: write to temp file then move
+sed "s|href=\"src/styles/global.css\"|href=\"$CSS_BUNDLE\"|" "$TEMP_DIR/index.html" > "$TEMP_DIR/index.html.tmp"
+mv "$TEMP_DIR/index.html.tmp" "$TEMP_DIR/index.html"
 
 # Copy bundle and assets with hashed names
 cp bundle.js "$TEMP_DIR/$JS_BUNDLE"
@@ -48,10 +49,12 @@ cd "$TEMP_DIR"
 # Initialize git and commit
 git init
 git add -A
+COMMIT_HASH=$(git -C "$OLDPWD" rev-parse --short HEAD)
 git commit -m "Deploy from commit $COMMIT_HASH"
 
-# Force push to gh-pages branch
-git push -f git@github.com:ohEmily/ohEmily.github.io.git main:gh-pages
+# Force push to gh-pages branch using the origin remote URL
+REMOTE_URL=$(git -C "$OLDPWD" remote get-url origin)
+git push -f "$REMOTE_URL" main:gh-pages
 
 echo "✅ Deployment complete!"
 echo "🌐 Site will be available at: https://ohemily.github.io"

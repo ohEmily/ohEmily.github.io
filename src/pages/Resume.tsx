@@ -4,9 +4,11 @@
 
 import { useState } from "react";
 
-// Your Google Drive resume link - using preview URL for iframe embedding
-const RESUME_URL =
-  "https://drive.google.com/file/d/0B9pvvLQIYkLcdFQyY3MwSmd3cm8/preview?usp=sharing&resourcekey=0-OR7VYCgnUtbLOlSJ3AN3wA";
+// Google Drive resume: preview URL for iframe, view URL for fallback link
+const RESUME_FILE_ID = "0B9pvvLQIYkLcdFQyY3MwSmd3cm8";
+const RESUME_RESOURCE_KEY = "0-OR7VYCgnUtbLOlSJ3AN3wA";
+const RESUME_PREVIEW_URL = `https://drive.google.com/file/d/${RESUME_FILE_ID}/preview?usp=sharing&resourcekey=${RESUME_RESOURCE_KEY}`;
+const RESUME_VIEW_URL = `https://drive.google.com/file/d/${RESUME_FILE_ID}/view?usp=sharing&resourcekey=${RESUME_RESOURCE_KEY}`;
 
 export default function Resume() {
   const [iframeError, setIframeError] = useState(false);
@@ -21,7 +23,7 @@ export default function Resume() {
       {!iframeError ? (
         <iframe
           className="resume-iframe"
-          src={RESUME_URL}
+          src={RESUME_PREVIEW_URL}
           title="Emily's Resume"
           onError={handleIframeError}
         />
@@ -32,7 +34,7 @@ export default function Resume() {
             Unable to display resume in iframe. Click below to view in a new
             tab.
           </p>
-          <a href={RESUME_URL} target="_blank" rel="noopener noreferrer">
+          <a href={RESUME_VIEW_URL} target="_blank" rel="noopener noreferrer">
             View Resume
           </a>
         </div>

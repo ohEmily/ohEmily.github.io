@@ -7,10 +7,10 @@ import QRCodeOverlay from "./QRCodeOverlay.tsx";
 
 // Array of image filenames to cycle through
 const images = [
-  "portrait.jpg",
-  "snowboarding-alps.jpg",
-  "bikes.jpg",
-  "cold-california.jpg",
+  { src: "portrait.jpg", alt: "Emily smiling in a portrait photo" },
+  { src: "snowboarding-alps.jpg", alt: "Emily snowboarding in the Alps" },
+  { src: "bikes.jpg", alt: "Emily with bikes" },
+  { src: "cold-california.jpg", alt: "Emily bundled up in cold California weather" },
 ];
 
 type PhotoSamplerProps = {
@@ -30,8 +30,8 @@ export default function PhotoSampler({ showQr = false }: PhotoSamplerProps) {
     <div className="photo-sampler">
       <div className="photo-frame">
         <img
-          src={`images/${images[imageIndex]}`}
-          alt="Emily's photo"
+          src={`images/${images[imageIndex].src}`}
+          alt={images[imageIndex].alt}
           onClick={handleClick}
         />
         {showQr && (
